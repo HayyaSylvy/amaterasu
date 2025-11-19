@@ -11,6 +11,10 @@
         url = "github:nix-community/stylix";
         inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixvim = {
+        url = "github:nix-community/nixvim";
+        inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs@{ self, nixpkgs, nixpkgs-stable, home-manager, nix-flatpak, stylix, ... }: {
@@ -25,6 +29,7 @@
           # Imports Nix related-modules
           home-manager.nixosModules.home-manager
           nix-flatpak.nixosModules.nix-flatpak
+          #nixvim.nixosModules.nixvim
           stylix.nixosModules.stylix
           # Imports other system-related modules
           ./modules/nixos/flatpak.nix

@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, inputs, pkgs, ... }:
+{ config, inputs, pkgs, stylix, ... }:
 
   #let acermodule = config.boot.kernelPackages.callPackage ./acer-rgb.nix {}; in
 
@@ -66,7 +66,6 @@
     description = "Lady Hayya";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [ 
-      kitty
       mullvad-browser
       fuzzel
       git
@@ -83,6 +82,12 @@
   };
 
   programs.niri.enable = true;
+
+  stylix = {
+     enable = true;
+     base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-material-dark-medium.yaml";
+     image = ./gruvy.png;
+  };
 
   # List packages installed in system profile. To search, run:
   environment.systemPackages = with pkgs; [
