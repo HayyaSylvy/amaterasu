@@ -18,7 +18,7 @@
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
   boot.initrd.luks.devices."luks-4b2cceb6-23eb-4e64-a942-7c10baf1fc8f".device = "/dev/disk/by-uuid/4b2cceb6-23eb-4e64-a942-7c10baf1fc8f";
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "amaterasu"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary

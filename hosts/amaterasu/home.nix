@@ -21,6 +21,13 @@
   ];
 
   programs.nixvim.enable = true;
+  programs.dankMaterialShell = {
+  enable = true;
+    niri = {
+      enableKeybinds = true;   # Automatic keybinding configuration
+      enableSpawn = true;      # Auto-start DMS with niri
+    };
+  };
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
@@ -56,7 +63,13 @@
     };
   };
 
-  programs.git.enable = true;
+  programs.git = {
+     enable = true;
+     settings = {
+       user.name = "HayyaSylvy";
+       user.email = "hannahmarieribeiro@proton.me";
+     };
+  };
   programs.gh = {
     enable = true;
     gitCredentialHelper.enable = true;
