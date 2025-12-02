@@ -45,6 +45,7 @@
           nix-flatpak.nixosModules.nix-flatpak
           stylix.nixosModules.stylix
           inputs.niri.nixosModules.niri
+	  inputs.dankMaterialShell.nixosModules.greeter
           # Imports other system-related modules
           ./modules/nixos/flatpak.nix
           # Setups Home Manager for "Lady Hayya" (AKA: this cute girl here :3)

@@ -90,12 +90,13 @@
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
  
+  # Enables Niri + DankMaterialGreeter
   programs.niri.enable = true;  
-  services.displayManager.sddm = {
-      enable = true;
-      wayland.enable = true;
+  programs.dankMaterialShell.greeter = {
+    enable = true;
+    compositor.name = "niri";  # Or "hyprland" or "sway"
   };
-  
+
   stylix = {
      enable = true;
      base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-material-dark-medium.yaml";
