@@ -445,6 +445,23 @@
       tab_powerline_style = "slanted";
       tab_title_template = "{title}{' :{}:'.format(num_windows) if num_windows > 1 else ''}";
     };
+    keybindings = {
+      "ctrl+T" = "new_tab";
+      "alt+shift+1" = "goto_tab 1";
+      "alt+shift+2" = "goto_tab 2";
+      "alt+shift+3" = "goto_tab 3";
+      "alt+shift+4" = "goto_tab 4";
+      "alt+shift+5" = "goto_tab 5";
+      "alt+shift+6" = "goto_tab 6";
+      "alt+shift+7" = "goto_tab 7";
+      "alt+shift+8" = "goto_tab 8";
+      "alt+shift+9" = "goto_tab 9";
+      "alt+shift+0" = "goto_tab 10";
+    };
+    extraConfig = ''
+      background_opacity 0.95
+      background_blur 32
+    '';
   };
 
   programs.git = {
