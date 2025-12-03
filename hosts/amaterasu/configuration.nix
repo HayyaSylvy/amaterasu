@@ -58,10 +58,14 @@
   # Configure console keymap
   console.keyMap = "br-abnt2";
 
+  # Enables the ZSH shell (configured later by Home Manager)
+  programs.zsh.enable = true;
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.ladyhayya = {
     isNormalUser = true;
     description = "Lady Hayya";
+    shell = pkgs.zsh;
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [];
   };
@@ -75,7 +79,13 @@
     floorp-bin
     kitty
     fuzzel
+    nautilus
   ];
+
+  programs.nautilus-open-any-terminal = {
+    enable = true;
+    terminal = "kitty";
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -95,6 +105,9 @@
   programs.dankMaterialShell.greeter = {
     enable = true;
     compositor.name = "niri";  # Or "hyprland" or "sway"
+    configFiles = [
+      "/home/ladyhayya/.config/DankMaterialShell/settings.json"
+    ];
   };
 
   stylix = {
@@ -117,8 +130,12 @@
     	base0E = "d3869b";
 	base0F = "d65d0e";
      };
+     cursor = {
+        name = "Capitaine Cursors (Gruvbox)";
+	package = pkgs.capitaine-cursors-themed;
+     };
      image = ./gruvy.png;
-     enableReleaseChecks = false;
+     enableReleaseChecks = true;
   };
 
   # Open ports in the firewall.

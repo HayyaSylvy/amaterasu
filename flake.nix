@@ -3,7 +3,6 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:nixos/nixpkgs/25.11";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
@@ -31,7 +30,7 @@
 
   };
 
-  outputs = inputs@{ self, nixpkgs, nixpkgs-stable, home-manager, nix-flatpak, stylix, nixvim, dgop, dankMaterialShell, ... }: {
+  outputs = inputs@{ self, nixpkgs, home-manager, nix-flatpak, stylix, nixvim, dgop, dankMaterialShell, ... }: {
     
     nixosConfigurations = {
       amaterasu = nixpkgs.lib.nixosSystem {

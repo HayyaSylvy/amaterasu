@@ -5,6 +5,13 @@
   # manage.
   home.username = "ladyhayya";
   home.homeDirectory = "/home/ladyhayya";
+  
+  xdg.userDirs = {
+      enable = true;
+      createDirectories = true;
+  };
+
+  home.language.base = "pt-BR.UTF-8";
 
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
@@ -18,8 +25,9 @@
   home.packages = with pkgs; [
      hyfetch
      fastfetch
+     meslo-lgs-nf
   ];
-
+   
     xdg.configFile."GruvboxRose.json".text = ''
     {
     "dark": {
@@ -477,7 +485,30 @@
   };
 
   stylix.targets.gtk.flatpakSupport.enable = true;
-  stylix.enableReleaseChecks = false;
+  stylix.enableReleaseChecks = true;
+  gtk.iconTheme = {
+      name = "Gruvbox-Plus-Dark";
+      package = pkgs.gruvbox-plus-icons;
+  };
+
+  programs.zsh = {
+      enable = true;
+      enableCompletion = true;
+      autosuggestion.enable = true;
+      syntaxHighlighting.enable = true;
+      localVariables = { 
+        ZSH_DISABLE_COMPFIX = "true"; # Fixes VSCodium wrong shell warning
+      };
+      dotDir = "${config.xdg.configHome}/zsh"; 
+      oh-my-zsh = {
+         enable = true;
+         plugins = [ "git" ];
+      };
+      initContent = ''
+      source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme 
+      source ~/.config/zsh/.p10k.zsh
+      '';
+  };
 
   # Home Manager can also manage your environment variables through
   # 'home.sessionVariables'. These will be explicitly sourced when using a
