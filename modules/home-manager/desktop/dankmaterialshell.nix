@@ -89,5 +89,6 @@
       enableSpawn = true;      # Auto-start DMS with niri
     };
    enableDynamicTheming = false;  # Disables Matugen, which is useless with Stylix.
+   };
 
-};
+}

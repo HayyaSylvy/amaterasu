@@ -58,7 +58,7 @@
                     ./hosts/amaterasu/home.nix
 		    # Imports the required configurations for Niri (my Tiling Compositor) and DankMaterialShell (the Shell on top of Niri)
 		    ./modules/home-manager/desktop/niri.nix
-		    ./modules/home-manager/desktop/dankmaterialhshell.nix
+		    ./modules/home-manager/desktop/dankmaterialshell.nix
 		    # Imports some configurations for apps I declare in Home Manager
 		    ./modules/home-manager/apps/floorp.nix
 		    ./modules/home-manager/apps/kitty.nix # :3
