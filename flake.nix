@@ -28,9 +28,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     joviansteamos.url = "github:Jovian-Experiments/Jovian-NixOS";
+    spicetify-nix.url = "github:Gerg-L/spicetify-nix";
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, nix-flatpak, stylix, nixvim, dgop, dankMaterialShell, niri, joviansteamos, ... }: {
+  outputs = inputs@{ self, nixpkgs, home-manager, nix-flatpak, stylix, nixvim, dgop, dankMaterialShell, niri, joviansteamos, spicetify-nix, ... }: {
     
     nixosConfigurations = {
       amaterasu = nixpkgs.lib.nixosSystem {
@@ -55,8 +56,10 @@
             home-manager = { 
                useGlobalPkgs = true;
                useUserPackages = true;
+	       extraSpecialArgs = { inherit inputs; };
                users.ladyhayya = { 
-                  imports = [ 
+                  imports = [
+		    spicetify-nix.homeManagerModules.default		  
 		    # Imports the Home.nix file. (AKA: the most essential Home Manager file :P)
                     ./hosts/amaterasu/home.nix
 		    # Imports the required configurations for Niri (my Tiling Compositor) and DankMaterialShell (the Shell on top of Niri)
@@ -65,6 +68,7 @@
 		    # Imports some configurations for apps I declare in Home Manager
 		    ./modules/home-manager/apps/emulation.nix
 		    ./modules/home-manager/apps/floorp.nix
+		    ./modules/home-manager/apps/spotify.nix # Actually Spiceitfy :P
 		    ./modules/home-manager/apps/kitty.nix # :3
 		    ./modules/home-manager/apps/neovim.nix # should be Nixvim instead, idk work the same for me :P
 		    # Imports the configuration of my shell and some TUI utilities.
