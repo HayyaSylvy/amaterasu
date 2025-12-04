@@ -24,11 +24,9 @@
      hyfetch
      fastfetch
      meslo-lgs-nf
+     qbittorrent
   ];
   
-  # Enables Neovim with the Nixvim manager. TODO: Move this to it's own module.
-  programs.nixvim.enable = true;
-
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {

@@ -9,7 +9,10 @@
 			citra.enable = true;
 		};
 	};
-	# Installs Ryubing (Ryujinx fork)
-	home.packages = [ pkgs.ryubing ];
+	# Installs Ryubing (Ryujinx fork) and Steam Rom Manager
+	home.packages = [ 
+		pkgs.ryubing 
+		pkgs.steam-rom-manager
+	];
 
 }

@@ -1,6 +1,7 @@
 {
 
   programs.niri.settings = {
+       xwayland-satellite.enable = true;
        # Setups the correct scale for my Monitors
        outputs."eDP-1".scale = 1.25;
        outputs."eDP-2".scale = 1.25;

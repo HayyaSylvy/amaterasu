@@ -30,6 +30,10 @@
 
   # Enable Bluetooth
   hardware.bluetooth.enable = true;
+  
+  # Enable X11 for compatibility reasons (and removex XTerm from it)
+  services.xserver.enable = true;
+  services.xserver.excludePackages = [ pkgs.xterm ];
 
   # Enables Pipewire for sound support.
   security.rtkit.enable = true;
@@ -82,7 +86,10 @@
     description = "Lady Hayya";
     shell = pkgs.zsh;
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [ pkgs.nautilus ];
+    packages = with pkgs; [ 
+    nautilus
+    xwayland-satellite
+    ];
   };
 
   # Allow unfree packages
@@ -120,8 +127,8 @@
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
  
-  # Enables Niri + DankMaterialGreeter
-  programs.niri.enable = true;  
+  # Enables Niri (Unstable) + DankMaterialGreeter
+  programs.niri.enable = true;
   programs.dankMaterialShell.greeter = {
     enable = true;
     compositor.name = "niri"; 
@@ -178,7 +185,15 @@
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
+  networking.firewall = { 
+    enable = true;
+    allowedTCPPortRanges = [ 
+      { from = 1714; to = 1764; } # KDE Connect
+    ];  
+    allowedUDPPortRanges = [ 
+      { from = 1714; to = 1764; } # KDE Connect
+    ];  
+  };  
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

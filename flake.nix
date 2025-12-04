@@ -30,7 +30,7 @@
     joviansteamos.url = "github:Jovian-Experiments/Jovian-NixOS";
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, nix-flatpak, stylix, nixvim, dgop, dankMaterialShell, joviansteamos, ... }: {
+  outputs = inputs@{ self, nixpkgs, home-manager, nix-flatpak, stylix, nixvim, dgop, dankMaterialShell, niri, joviansteamos, ... }: {
     
     nixosConfigurations = {
       amaterasu = nixpkgs.lib.nixosSystem {
