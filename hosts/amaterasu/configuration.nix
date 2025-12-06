@@ -131,7 +131,60 @@
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
+  # services.openssh.enable = true  
+
+  # Manually generates a theme for DankMaterialGreeter, it doesn't use Stylix unfortunatly :(
+  environment.etc."GruvboxRose.json" = {
+  mode = "copy";
+  text = ''
+    {
+    "dark": {
+    	"name": "Gruvbox-Rose Dark",
+    	"primary": "#fb4934",
+    	"primaryText": "#1b1b1b",
+    	"primaryContainer": "#98971A",
+    	"secondary": "#98971A",
+    	"surface": "#1b1b1b",
+    	"surfaceText": "#FBF1C7",
+    	"surfaceVariant": "#282828",
+    	"surfaceVariantText": "#928374",
+    	"surfaceTint": "#98971A",
+    	"background": "#1b1b1b",
+    	"backgroundText": "#FBF1C7",
+    	"outline": "#928374",
+    	"surfaceContainer": "#282828",
+    	"surfaceContainerHigh": "#3C3836",
+    	"surfaceContainerHighest": "#504945",
+    	"error": "#FB4934",
+    	"warning": "#FABD2F",
+    	"info": "#83A598",
+    	"matugen_type": "scheme-expressive"
+  	},
+    "light": {
+    	"name": "Gruvbox-Rose Light",
+    	"primary": "#EA6962",
+    	"primaryText": "#FBF1C7",
+    	"primaryContainer": "#98971A",
+    	"secondary": "#98971A",
+    	"surface": "#FBF1C7",
+    	"surfaceText": "#1b1b1b",
+    	"surfaceVariant": "#EBDBB2",
+    	"surfaceVariantText": "#928374",
+    	"surfaceTint": "#98971A",
+    	"background": "#FBF1C7",
+    	"backgroundText": "#1b1b1b",
+    	"outline": "#928374",
+    	"surfaceContainer": "#EBDBB2",
+    	"surfaceContainerHigh": "#D5C4A1",
+    	"surfaceContainerHighest": "#BDAE93",
+    	"error": "#CC241D",
+    	"warning": "#D79921",
+    	"info": "#458588",
+    	"matugen_type": "scheme-expressive"
+  	}
+       }
+  '';
+  };
  
   # Enables Niri (Unstable) + DankMaterialGreeter
   programs.niri.enable = true;
@@ -140,7 +193,7 @@
     compositor.name = "niri";
     configHome = "/home/ladyhayya";
     configFiles = [
-      "/home/ladyhayya/.config/DankMaterialShell/settings.json"
+      "/home/ladyhayya/.config/dmsgreeter/"
     ];
   };
   
@@ -201,7 +254,7 @@
     allowedUDPPortRanges = [ 
       { from = 1714; to = 1764; } # KDE Connect
     ];  
-  };  
+  }; 
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
