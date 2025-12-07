@@ -4,6 +4,8 @@
 
 { config, pkgs, inputs, stylix, ... }:
 
+let acermodule = config.boot.kernelPackages.callPackage ./../../pkgs/acer-rgb.nix {}; in
+
 {
   imports =
     [ # Include the results of the hardware scan.
@@ -16,6 +18,10 @@
 
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
+  
+  # Enables my Acer RGB Keyboard to work properly.
+  boot.extraModulePackages = [ acermodule ];
+  boot.kernelModules = [ "facer" "wmi" "sparse-keymap" "video" ];
   
   # Enables XDG Desktop Portals for permission fixes.
   xdg.portal = { 

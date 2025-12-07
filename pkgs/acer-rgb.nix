@@ -14,10 +14,11 @@ stdenv.mkDerivation rec {
     export sourceRoot=$(pwd)/source
   '';
   nativeBuildInputs = kernel.moduleBuildDependencies;
-  makeFlags = kernel.makeFlags ++ [
+  makeFlags = (lib.filter (x: x != "--eval=undefine modules") kernel.makeFlags) ++ [
     "-C"
     "${kernel.dev}/lib/modules/${kernel.modDirVersion}/build"
     "M=$(sourceRoot)"
+    "KBUILD_OUTPUT=${kernel.dev}/lib/modules/${kernel.modDirVersion}/build"
   ];
   buildFlags = [ "modules" ];
   installFlags = [ "INSTALL_MOD_PATH=${placeholder "out"}" ];
