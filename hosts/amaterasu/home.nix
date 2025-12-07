@@ -32,16 +32,20 @@
 
   # The home.packages option allows you to install Nix packages.
   home.packages = with pkgs; [
+     # Fastfetch as fetch backend, Hyfetch for neofetch but PRIDE :3
      hyfetch
      fastfetch
+     # Fonts needed for Powerlevel10k
      meslo-lgs-nf
-     qbittorrent
-     celluloid
-     image-roll
-     prismlauncher
-     evince
-     snapshot
-     sgdboop
+     # Random apps I couldn't fit in a specific module :P
+     qbittorrent # Torrent Client (QT)
+     prismlauncher # Best Minecraft Launcher EVER (QT)
+     celluloid # GNOME MPV Player
+     image-roll # GNOME Image Viewer
+     evince # GNOME Document Viewer
+     snapshot # GNOME Camera
+     foliate # GNOME E-Book Reader
+     sgdboop # Client for SteamGridDB
      # Scripts in Python
      (pkgs.writeScriptBin "rgb-control"
      ("#!${mypython}/bin/python3\n" + (builtins.readFile ./../../pkgs/acer-rgb-control.py)))
