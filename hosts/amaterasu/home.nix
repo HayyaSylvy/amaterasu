@@ -1,6 +1,7 @@
 { config, cfg, pkgs, lib, inputs, stylix, ... }:
 
   let
+  # Assigning a Python3 Environment for my RGB Control script.
   mypython = (pkgs.python3.withPackages (pythonPackages: with pythonPackages; [
       consul
   ]));
