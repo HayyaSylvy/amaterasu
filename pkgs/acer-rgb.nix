@@ -27,7 +27,7 @@ stdenv.mkDerivation rec {
 
   meta = with lib; {
     description = "Improved Linux driver for Acer RGB Keyboards ";
-    homepage = "https://github.com/HollowMan6/acer-predator-turbo-and-rgb-keyboard-linux-module";
+    homepage = "https://github.com/JafarAkhondali/acer-predator-turbo-and-rgb-keyboard-linux-module";
     license = licenses.gpl3;
     maintainers = [ ];
     platforms = platforms.linux;

@@ -35,6 +35,9 @@
      evince
      snapshot
      sgdboop
+     writePython3bin "pythonScript" {} ''
+     print("hello world")
+     '';
   ];
   
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
