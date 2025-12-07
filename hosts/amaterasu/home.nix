@@ -1,5 +1,11 @@
 { config, cfg, pkgs, lib, inputs, stylix, ... }:
 
+  let
+  mypython = (pkgs.python3.withPackages (pythonPackages: with pythonPackages; [
+      consul
+  ]));
+  in
+
 {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -35,9 +41,9 @@
      evince
      snapshot
      sgdboop
-     writePython3bin "pythonScript" {} ''
-     print("hello world")
-     '';
+     # Scripts in Python
+     (pkgs.writeScriptBin "rgb-control"
+     ("#!${mypython}/bin/python3\n" + (builtins.readFile ./../../pkgs/acer-rgb-control.py)))
   ];
   
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
