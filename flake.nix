@@ -54,6 +54,7 @@
           ./modules/nixos/apps/flatpak.nix
 	  ./modules/nixos/apps/steam.nix
 	  ./modules/nixos/hardware/nvidia.nix
+	  ./modules/nixos/apps/syncthing.nix
           # Setups Home Manager for "Lady Hayya" (AKA: this cute girl here :3)
           {
             home-manager = { 
