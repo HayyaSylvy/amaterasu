@@ -33,11 +33,13 @@
     aagl.url = "github:ezKEa/aagl-gtk-on-nix";
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, nix-flatpak, stylix, nixvim, dgop, dankMaterialShell, niri, joviansteamos, spicetify-nix, nixcord, ... }: {
+  outputs = inputs@{ self, nixpkgs, home-manager, nix-flatpak, stylix, nixvim, dgop, dankMaterialShell, niri, joviansteamos, spicetify-nix, nixcord, ... }: 
+{
     
     nixosConfigurations = {
       amaterasu = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
+	specialArgs = {inherit inputs;};
         modules = [
           # Imports essential system-related configurations
           ./hosts/amaterasu/configuration.nix

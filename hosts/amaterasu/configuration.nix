@@ -100,7 +100,6 @@ let acermodule = config.boot.kernelPackages.callPackage ./../../pkgs/acer-rgb.ni
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [ 
     nautilus
-    xwayland-satellite
     ];
   };
 
@@ -141,6 +140,9 @@ let acermodule = config.boot.kernelPackages.callPackage ./../../pkgs/acer-rgb.ni
  
   # Enables Niri (Unstable) + DankMaterialGreeter
   programs.niri.enable = true;
+  programs.niri.package = pkgs.niri-unstable;
+  nixpkgs.overlays = [ inputs.niri.overlays.niri ];
+
   programs.dankMaterialShell.greeter = {
     enable = true;
     compositor.name = "niri";
@@ -204,15 +206,7 @@ let acermodule = config.boot.kernelPackages.callPackage ./../../pkgs/acer-rgb.ni
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
-  networking.firewall = { 
-    enable = true;
-    allowedTCPPortRanges = [ 
-      { from = 1714; to = 1764; } # KDE Connect
-    ];  
-    allowedUDPPortRanges = [ 
-      { from = 1714; to = 1764; } # KDE Connect
-    ];  
-  }; 
+  networking.firewall.enable = false;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

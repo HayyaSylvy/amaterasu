@@ -19,6 +19,22 @@ services.syncthing = {
 		devices = [ "Izanami" ];
 		ignorePerms = true;
 	};
+	"GBA Roms" = {
+		path = "/home/ladyhayya/Gaming.nix/Roms/GBA";
+		devices = [ "Izanami" ];
+	};
+	"DS Roms" = {
+		path = "/home/ladyhayya/Gaming.nix/Roms/DS";
+		devices = [ "Izanami" ];
+	};
+	"3DS Roms" = {
+		path = "/home/ladyhayya/Gaming.nix/Roms/3DS";
+		devices = [ "Izanami" ];
+	};	
+	"PSP Roms" = {
+		path = "/home/ladyhayya/Gaming.nix/Roms/PSP";
+		devices = [ "Izanami" ];
+	};
      };
   };
 };

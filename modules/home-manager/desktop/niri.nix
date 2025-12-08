@@ -1,7 +1,11 @@
+{lib, pkgs, ...}:
 {
 
   programs.niri.settings = {
-       xwayland-satellite.enable = true;
+       xwayland-satellite = {
+	enable = true;
+	path = lib.getExe pkgs.xwayland-satellite-unstable;
+       };
        # Setups the correct scale for my Monitors
        outputs."eDP-1".scale = 1.25;
        outputs."eDP-2".scale = 1.25;
