@@ -23,6 +23,19 @@ let acermodule = config.boot.kernelPackages.callPackage ./../../pkgs/acer-rgb.ni
   boot.extraModulePackages = [ acermodule ];
   boot.kernelModules = [ "facer" "wmi" "sparse-keymap" "video" ];
   
+  # Enables Plymouth, and removes most boot messages.
+  boot.plymouth.enable = true;
+  boot.initrd.systemd.enable = true;
+  boot.consoleLogLevel = 3;
+  boot.initrd.verbose = false;
+  boot.kernelParams = [
+      "quiet"
+      "splash"
+      "boot.shell_on_fail"
+      "udev.log_priority=3"
+      "rd.systemd.show_status=auto"
+  ];
+
   # Enables XDG Desktop Portals for permission fixes.
   xdg.portal = { 
   	enable = true;
