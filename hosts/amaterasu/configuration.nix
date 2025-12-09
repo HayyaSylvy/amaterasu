@@ -154,7 +154,12 @@ let acermodule = config.boot.kernelPackages.callPackage ./../../pkgs/acer-rgb.ni
   # Enables Niri (Unstable) + DankMaterialGreeter
   programs.niri.enable = true;
   programs.niri.package = pkgs.niri-unstable;
-  nixpkgs.overlays = [ inputs.niri.overlays.niri ];
+  
+  # Overlays to Nixpkgs ( i hope this works :P )
+  nixpkgs.overlays = [ 
+  	inputs.niri.overlays.niri 
+  	inputs.nix-vscode-extensions.overlays.default
+  ];
 
   programs.dankMaterialShell.greeter = {
     enable = true;

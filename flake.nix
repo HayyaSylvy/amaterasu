@@ -28,12 +28,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     joviansteamos.url = "github:Jovian-Experiments/Jovian-NixOS";
+    nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     nixcord.url = "github:kaylorben/nixcord";
     aagl.url = "github:ezKEa/aagl-gtk-on-nix";
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, nix-flatpak, stylix, nixvim, dgop, dankMaterialShell, niri, joviansteamos, spicetify-nix, nixcord, ... }: 
+  outputs = inputs@{ self, nixpkgs, home-manager, nix-flatpak, stylix, nixvim, dgop, dankMaterialShell, niri, joviansteamos, spicetify-nix, nixcord, nix-vscode-extensions, ... }: 
 {
     
     nixosConfigurations = {
@@ -80,6 +81,7 @@
 		    ./modules/home-manager/apps/mangohud.nix
 		    ./modules/home-manager/apps/kitty.nix # :3
 		    ./modules/home-manager/apps/neovim.nix # should be Nixvim instead, idk work the same for me :P
+		    ./modules/home-manager/apps/vscode.nix
 		    # Imports the configuration of my shell and some TUI utilities.
 		    ./modules/home-manager/shell/zsh.nix
 		    ./modules/home-manager/shell/git.nix
