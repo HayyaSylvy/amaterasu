@@ -13,7 +13,7 @@
       dotDir = "${config.xdg.configHome}/zsh"; 
       oh-my-zsh = {
          enable = true;
-         plugins = [ "git" ];
+         plugins = [ "git"];
       };
       # This fixes Powerlevel10k, I barely know why but it does :P
       initContent = ''

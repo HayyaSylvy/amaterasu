@@ -81,7 +81,6 @@
 		    ./modules/home-manager/apps/mangohud.nix
 		    ./modules/home-manager/apps/kitty.nix # :3
 		    ./modules/home-manager/apps/neovim.nix # should be Nixvim instead, idk work the same for me :P
-		    ./modules/home-manager/apps/vscode.nix
 		    # Imports the configuration of my shell and some TUI utilities.
 		    ./modules/home-manager/shell/zsh.nix
 		    ./modules/home-manager/shell/git.nix
