@@ -31,7 +31,6 @@
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     nixcord.url = "github:kaylorben/nixcord";
-    aagl.url = "github:ezKEa/aagl-gtk-on-nix";
   };
 
   outputs = inputs@{ self, nixpkgs, home-manager, nix-flatpak, stylix, nixvim, dgop, dankMaterialShell, niri, joviansteamos, spicetify-nix, nixcord, nix-vscode-extensions, ... }: 
@@ -77,6 +76,7 @@
 		    ./modules/home-manager/apps/obsidian.nix
 		    ./modules/home-manager/apps/spotify.nix # Actually Spiceitfy :P
 		    ./modules/home-manager/apps/discord.nix # Actually Nixcord, which configures Vesktop not the Official Discord app :P
+		    ./modules/home-manager/apps/vscode.nix
 		    ./modules/home-manager/apps/kdeconnect.nix
 		    ./modules/home-manager/apps/mangohud.nix
 		    ./modules/home-manager/apps/kitty.nix # :3

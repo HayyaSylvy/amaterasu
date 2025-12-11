@@ -6,14 +6,16 @@
 		package = pkgs.vscodium;
 		profiles."Akari" = {
 		  extensions = with pkgs.nix-vscode-extensions.open-vsx; [
-			arrterian.nix-env-selector
+			io-github-oops418.nix-env-picker
 			jnoortheen.nix-ide
-			ms-ceintl.vscode-language-pack-pt-br
 			yandeu.five-server
+			ms-python.python
 		  ];
 		  userSettings = {
-			"locale" = "pt-BR";
 			"nixEnvSelector.useFlakes" = true;
+			"terminal.integrated.fontFamily" = "MesloLGS NF";
+			"nixEnvPicker.terminalAutoActivate" = true;
+			"nixEnvPicker.terminalActivateCommand" = "nix develop";
 		  };
 		};
 	};
