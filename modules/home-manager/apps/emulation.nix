@@ -5,7 +5,7 @@
 		enable = true;
 		cores = {
 			mgba.enable = true;
-			melonds.enable = true;
+			desmume.enable = true;
 			citra.enable = true;
 		};
 	};
