@@ -6,6 +6,7 @@
 	enable = true;
 	path = lib.getExe pkgs.xwayland-satellite-unstable;
        };
+       debug.keep-laptop-panel-on-when-lid-is-closed = true;
        # Setups the correct scale for my Monitors
        outputs."eDP-1".scale = 1.25;
        outputs."eDP-2".scale = 1.25;

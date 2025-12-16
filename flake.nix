@@ -48,7 +48,6 @@
           home-manager.nixosModules.home-manager
           nix-flatpak.nixosModules.nix-flatpak
           stylix.nixosModules.stylix
-	  inputs.aagl.nixosModules.default
           inputs.niri.nixosModules.niri
 	  inputs.dankMaterialShell.nixosModules.greeter
 	  inputs.joviansteamos.nixosModules.default
@@ -78,6 +77,7 @@
 		    ./modules/home-manager/apps/discord.nix # Actually Nixcord, which configures Vesktop not the Official Discord app :P
 		    ./modules/home-manager/apps/vscode.nix
 		    ./modules/home-manager/apps/kdeconnect.nix
+		    ./modules/home-manager/apps/lutris.nix
 		    ./modules/home-manager/apps/mangohud.nix
 		    ./modules/home-manager/apps/kitty.nix # :3
 		    ./modules/home-manager/apps/neovim.nix # should be Nixvim instead, idk work the same for me :P

@@ -16,6 +16,13 @@ let acermodule = config.boot.kernelPackages.callPackage ./../../pkgs/acer-rgb.ni
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  programs.nix-ld = {
+  	enable = true;
+	libraries = pkgs.steam-run.args.multiPkgs pkgs;
+  };
+
+  services.logind.lidSwitchExternalPower = "ignore";
+
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
   

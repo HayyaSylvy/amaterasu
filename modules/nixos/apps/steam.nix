@@ -17,6 +17,16 @@
 			bluez
 			gamemode
 			mangohud # Installed just for Steam, configured in the home-manager module.
+			brotli
+			gcc
+			glibc
+			libidn2
+			libnghttp2
+			libssh2
+			openssl
+			zlib
+			zstd
+
 		];
 		extraCompatPackages = with pkgs; [ proton-ge-bin ];
 	};
