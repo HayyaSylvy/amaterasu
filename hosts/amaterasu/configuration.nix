@@ -18,7 +18,6 @@ let acermodule = config.boot.kernelPackages.callPackage ./../../pkgs/acer-rgb.ni
 
   programs.nix-ld = {
   	enable = true;
-	libraries = pkgs.steam-run.args.multiPkgs pkgs;
   };
 
   services.logind.lidSwitchExternalPower = "ignore";
@@ -61,7 +60,17 @@ let acermodule = config.boot.kernelPackages.callPackage ./../../pkgs/acer-rgb.ni
   networking.networkmanager.enable = true;
 
   # Enable Bluetooth
-  hardware.bluetooth.enable = true;
+  hardware.bluetooth = {
+    enable = true; # enables support for Bluetooth
+    powerOnBoot = true; # powers up the default Bluetooth controller on boot
+    settings = {
+      General = {
+        Privacy = "device";
+        JustWorksRepairing = "always";
+        Class = "0x000100";
+      };
+    };
+  };
   
   # Enable X11 for compatibility reasons (and removex XTerm from it)
   services.xserver.enable = true;
@@ -120,6 +129,7 @@ let acermodule = config.boot.kernelPackages.callPackage ./../../pkgs/acer-rgb.ni
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [ 
     nautilus
+    linuxKernel.packages.linux_6_18.xone
     ];
   };
 

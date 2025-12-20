@@ -5,7 +5,10 @@
   programs.mangohud = {
       enable = true;
       package = pkgs.mangohud;
-      settings = { };
+      settings = { 
+	"cpu_temp" = true;
+	"gpu_temp" = true;
+      };
   };
 
 }
