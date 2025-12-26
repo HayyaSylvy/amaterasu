@@ -59,7 +59,7 @@
   # Configure Hyfetch so it uses the Trans flag. Stupid test, but letting it here because why not? I'M TRANS WITH PRIDE GIRLIE :D
   xdg.configFile."hyfetch.json".text = ''
     {
-    "preset": "transgender",
+    "preset": "transbian",
     "mode": "rgb",
     "auto_detect_light_dark": true,
     "light_dark": "dark",

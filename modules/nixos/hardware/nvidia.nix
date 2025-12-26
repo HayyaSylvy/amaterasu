@@ -9,7 +9,7 @@
    ];
    hardware.nvidia = {
 	open = false;
-	nvidiaPersistenced = true;
+	#nvidiaPersistenced = true;
 	prime = {
 	    offload = {
 	    enable = true;

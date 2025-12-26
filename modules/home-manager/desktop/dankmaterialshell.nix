@@ -1,27 +1,28 @@
+{ config, scheme, ... }:
 {
   # Manually generates a theme for DankMaterialShell, it doesn't use Stylix unfortunatly :(
   xdg.configFile."GruvboxRose.json".text = ''
     {
     "dark": {
     	"name": "Gruvbox-Rose Dark",
-    	"primary": "#fb4934",
-    	"primaryText": "#1b1b1b",
-    	"primaryContainer": "#98971A",
-    	"secondary": "#98971A",
-    	"surface": "#1b1b1b",
-    	"surfaceText": "#FBF1C7",
-    	"surfaceVariant": "#282828",
-    	"surfaceVariantText": "#928374",
-    	"surfaceTint": "#98971A",
-    	"background": "#1b1b1b",
-    	"backgroundText": "#FBF1C7",
-    	"outline": "#928374",
-    	"surfaceContainer": "#282828",
-    	"surfaceContainerHigh": "#3C3836",
-    	"surfaceContainerHighest": "#504945",
-    	"error": "#FB4934",
-    	"warning": "#FABD2F",
-    	"info": "#83A598",
+    	"primary": "${config.lib.stylix.colors.withHashtag.base0D}",
+    	"primaryText": "${config.lib.stylix.colors.withHashtag.base01}",
+    	"primaryContainer": "${config.lib.stylix.colors.withHashtag.base0B}",
+    	"secondary": "${config.lib.stylix.colors.withHashtag.base0B}",
+    	"surface": "${config.lib.stylix.colors.withHashtag.base01}",
+    	"surfaceText": "${config.lib.stylix.colors.withHashtag.base07}",
+    	"surfaceVariant": "${config.lib.stylix.colors.withHashtag.base00}",
+    	"surfaceVariantText": "${config.lib.stylix.colors.withHashtag.base04}",
+    	"surfaceTint": "${config.lib.stylix.colors.withHashtag.base0B}",
+    	"background": "${config.lib.stylix.colors.withHashtag.base01}",
+    	"backgroundText": "${config.lib.stylix.colors.withHashtag.base07}",
+    	"outline": "${config.lib.stylix.colors.withHashtag.base03}",
+    	"surfaceContainer": "${config.lib.stylix.colors.withHashtag.base00}",
+    	"surfaceContainerHigh": "${config.lib.stylix.colors.withHashtag.base01}",
+    	"surfaceContainerHighest": "${config.lib.stylix.colors.withHashtag.base02}",
+    	"error": "${config.lib.stylix.colors.withHashtag.base0D}",
+    	"warning": "${config.lib.stylix.colors.withHashtag.base08}",
+    	"info": "${config.lib.stylix.colors.withHashtag.base0A}",
     	"matugen_type": "scheme-expressive"
   	},
     "light": {
