@@ -202,6 +202,11 @@ let acermodule = config.boot.kernelPackages.callPackage ./../../pkgs/acer-rgb.ni
 	package = pkgs.capitaine-cursors-themed;
 	size = 26;
      };
+     iconTheme  = {
+	enable = true;
+	package = pkgs.gruvbox-plus-icons;
+	dark = "Gruvbox-Plus-Dark";
+     };
      # Sets my wallpaper using WPaperD :P
      image = ./../../modules/home-manager/assets/gruvy.png;
      polarity = "dark";

@@ -41,6 +41,7 @@
          QT_QPA_PLATFORM = "wayland";
          ELECTRON_OZONE_PLATFORM_HINT = "auto";
          QT_QPA_PLATFORMTHEME = "qt5ct";
+	 #QT_STYLE_OVERRIDE = "qt5ct";
          TERMINAL = "kitty";
        };
        hotkey-overlay.skip-at-startup = true;

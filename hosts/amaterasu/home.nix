@@ -56,7 +56,7 @@
   home.file = {
   };
 
-  # Configure Hyfetch so it uses the Trans flag. Stupid test, but letting it here because why not? I'M TRANS WITH PRIDE GIRLIE :D
+  # Configure Hyfetch so it uses the Trans flag. I'm letting it here because why not? I'M TRANS WITH PRIDE GIRL :3
   xdg.configFile."hyfetch.json".text = ''
     {
     "preset": "transbian",
@@ -77,25 +77,38 @@
 
   # Enables two stylix modules and removes false alarm of mismatching versions (Pretty sure these are all useless, TODO: Remove this)
   stylix.targets.gtk.flatpakSupport.enable = true;
-  stylix.targets.qt.enable = true;
+  #stylix.targets.qt = { 
+  #	enable = true;
+  #	platform = "qtct";
+  #};
   stylix.enableReleaseChecks = false;
 
   # Enables the Gruvbox Plus icon theme for GTK apps.
-  gtk.iconTheme = {
-      name = "Gruvbox-Plus-Dark";
-      package = pkgs.gruvbox-plus-icons;
-  };
+  #gtk.iconTheme = {
+  #    name = "Gruvbox-Plus-Dark";
+  #    package = pkgs.gruvbox-plus-icons;
+  #};
 
   # Enables the Gruvbox Plus icon theme for QT apps and DankMaterialShell.
-  xdg.configFile."qt6ct/qt6ct.conf".text = ''
-  	[Appearance]
-	custom_palette=true
-	style=kvantum
-	icon_theme=Gruvbox-Plus-Dark
-	[Fonts]
-	fixed="DejaVu Sans Mono,12"
-	general="DejaVu Sans,12"
-  '';
+  # xdg.configFile."qt6ct/qt6ct.conf".text = ''
+  #	[Appearance]
+#	custom_palette=true
+#	style=kvantum
+#	icon_theme=Gruvbox-Plus-Dark
+#	[Fonts]
+#	fixed="DejaVu Sans Mono,12"
+#	general="DejaVu Sans,12"
+#  '';
+#   xdg.configFile."qt5ct/qt5ct.conf".text = ''
+#  	[Appearance]
+#	custom_palette=true
+#	style=kvantum
+#	icon_theme=Gruvbox-Plus-Dark
+#	[Fonts]
+#	fixed="DejaVu Sans Mono,12"
+#	general="DejaVu Sans,12"
+#  ''; 
+
 
   # Fixes QT Theming with Stylix (PS: Thank you kind stranger who made this, because I don't understand a line of this code but it works :P)
   xdg.configFile.kdeglobals.source =
