@@ -1,4 +1,4 @@
-{ pkgs, config, ...}:
+{ pkgs, config, osConfig, ...}:
 {
 
 	programs.lutris = {
@@ -12,7 +12,7 @@
 			gamemode
 			umu-launcher
 		];
-		#steamPackage = osConfig.programs.steam.package;
+		steamPackage = osConfig.programs.steam.package;
 	};
 
 }
