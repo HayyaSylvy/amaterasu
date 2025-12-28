@@ -24,7 +24,7 @@ let acermodule = config.boot.kernelPackages.callPackage ./../../pkgs/acer-rgb.ni
   
   # Enables my Acer RGB Keyboard to work properly.
   boot.extraModulePackages = [ acermodule ];
-  boot.kernelModules = [ "facer" "wmi" "sparse-keymap" "video" ];
+  boot.kernelModules = [ "facer" "wmi" "sparse-keymap" "video"];  
   
   # Enables Plymouth, and removes most boot messages.
   boot.plymouth.enable = true;
@@ -37,6 +37,7 @@ let acermodule = config.boot.kernelPackages.callPackage ./../../pkgs/acer-rgb.ni
       "boot.shell_on_fail"
       "udev.log_priority=3"
       "rd.systemd.show_status=auto"
+      "nvidia-drm.fbdev=1" 
   ];
 
   # Enables XDG Desktop Portals for permission fixes.
@@ -174,6 +175,16 @@ let acermodule = config.boot.kernelPackages.callPackage ./../../pkgs/acer-rgb.ni
       "/home/ladyhayya/.config/DankMaterialShell/"
     ];
   };
+
+  # Enables Gnome and GDM for screenmirroring (AKA: Baldur's Gate 3 on Biel's House :P)
+  #services.displayManager.gdm.enable = true;
+  #services.desktopManager.gnome.enable = true;
+  # To disable installing GNOME's suite of applications
+  # and only be left with GNOME shell.
+  #services.gnome.core-apps.enable = false;
+  #services.gnome.core-developer-tools.enable = false;
+  #services.gnome.games.enable = false;
+  #environment.gnome.excludePackages = with pkgs; [ gnome-tour gnome-user-docs ];
 
   # Enables Stylix for a unified theming for (pretty much) all apps.
   stylix = {

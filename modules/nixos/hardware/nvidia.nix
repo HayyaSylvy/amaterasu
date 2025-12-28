@@ -3,20 +3,22 @@
 {
 
    hardware.graphics.enable = true;
-   services.xserver.videoDrivers = [ 
+   services.xserver.videoDrivers = [
    	"amdgpu"
-   	"nvidia" 
+	"nvidia" 
    ];
    hardware.nvidia = {
 	open = false;
-	#nvidiaPersistenced = true;
+	package = config.boot.kernelPackages.nvidiaPackages.stable;
+	nvidiaPersistenced = true;
+	modesetting.enable = true;
 	prime = {
 	    offload = {
 	    enable = true;
 	    enableOffloadCmd = true;
 	    };
 	    amdgpuBusId = "PCI:74:0:0";
-	    nvidiaBusId = "PCI:1:0:0";
+	    nvidiaBusId = "PCI:01:0:0";
 	};
    };
 

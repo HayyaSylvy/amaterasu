@@ -1,6 +1,7 @@
 {lib, pkgs, ...}:
 {
 
+
   programs.niri.settings = {
        xwayland-satellite = {
 	enable = true;

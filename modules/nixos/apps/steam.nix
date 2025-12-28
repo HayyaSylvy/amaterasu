@@ -5,18 +5,27 @@
 		enable = true;
 		enableRenice = true;
 	};
-	jovian.steam = {
+        programs.gamescope = {
 		enable = true;
+		capSysNice = false;
 	};
 	programs.steam = {
 		enable = true;
 		protontricks.enable = true;
+		package = pkgs.steam.override {
+			extraEnv = {
+        		 __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+        		 __NV_PRIME_RENDER_OFFLOAD = "1";
+        		 __NV_PRIME_RENDER_OFFLOAD_PROVIDER = "NVIDIA-G0";
+        		 __VK_LAYER_NV_optimus = "NVIDIA_only";
+			};
+		};
 		extraPackages = with pkgs; [
 			gamescope
 			gamescope-wsi
 			bluez
 			gamemode
-			mangohud # Installed just for Steam, configured in the home-manager module.
+			mangohud
 			brotli
 			gcc
 			glibc
@@ -26,11 +35,11 @@
 			openssl
 			zlib
 			zstd
+			sudo
 
 		];
 		extraCompatPackages = with pkgs; [ proton-ge-bin ];
 	};
-	jovian.steamos.enableBluetoothConfig = true;
 	environment.systemPackages = with pkgs; [ 
 		gamescope-wsi
 	];

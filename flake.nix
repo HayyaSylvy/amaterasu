@@ -27,13 +27,12 @@
       url = "github:sodiboo/niri-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    joviansteamos.url = "github:Jovian-Experiments/Jovian-NixOS";
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     nixcord.url = "github:kaylorben/nixcord";
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, nix-flatpak, stylix, nixvim, dgop, dankMaterialShell, niri, joviansteamos, spicetify-nix, nixcord, nix-vscode-extensions, ... }: 
+  outputs = inputs@{ self, nixpkgs, home-manager, nix-flatpak, stylix, nixvim, dgop, dankMaterialShell, niri, spicetify-nix, nixcord, nix-vscode-extensions, ... }: 
 {
     
     nixosConfigurations = {
@@ -50,8 +49,7 @@
           stylix.nixosModules.stylix
           inputs.niri.nixosModules.niri
 	  inputs.dankMaterialShell.nixosModules.greeter
-	  inputs.joviansteamos.nixosModules.default
-          # Imports other system-related modules
+	  # Imports other system-related modules
           ./modules/nixos/apps/flatpak.nix
 	  ./modules/nixos/apps/steam.nix
 	  ./modules/nixos/hardware/nvidia.nix
@@ -66,7 +64,7 @@
                   imports = [
 		    # Imports the Home.nix file. (AKA: the most essential Home Manager file :P)
                     ./hosts/amaterasu/home.nix
-		    # Imports the required configurations for Niri (my Tiling Compositor) and DankMaterialShell (the Shell on top of Niri)
+		    # Imports the required configurations for Niri (my Tiling Compositor of choice) and DankMaterialShell (the Shell on top of Niri)
 		    ./modules/home-manager/desktop/niri.nix
 		    ./modules/home-manager/desktop/dankmaterialshell.nix
 		    # Imports some configurations for apps I declare in Home Manager

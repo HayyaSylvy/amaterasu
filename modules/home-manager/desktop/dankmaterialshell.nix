@@ -1,4 +1,4 @@
-{ config, scheme, ... }:
+{ config, pkgs, ... }:
 {
   # Manually generates a theme for DankMaterialShell, it doesn't use Stylix unfortunatly :(
   xdg.configFile."GruvboxRose.json".text = ''
