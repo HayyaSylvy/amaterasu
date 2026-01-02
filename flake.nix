@@ -14,14 +14,13 @@
         url = "github:nix-community/nixvim";
         inputs.nixpkgs.follows = "nixpkgs";
     };
-    dgop = {
-      url = "github:AvengeMedia/dgop";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    #dgop = {
+    #  url = "github:AvengeMedia/dgop";
+    #  inputs.nixpkgs.follows = "nixpkgs";
+    #};
     dankMaterialShell = {
       url = "github:AvengeMedia/DankMaterialShell";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.dgop.follows = "dgop";
     };
     niri = {
       url = "github:sodiboo/niri-flake";
@@ -32,7 +31,7 @@
     nixcord.url = "github:kaylorben/nixcord";
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, nix-flatpak, stylix, nixvim, dgop, dankMaterialShell, niri, spicetify-nix, nixcord, nix-vscode-extensions, ... }: 
+  outputs = inputs@{ self, nixpkgs, home-manager, nix-flatpak, stylix, nixvim, dankMaterialShell, niri, spicetify-nix, nixcord, nix-vscode-extensions, ... }: 
 {
     
     nixosConfigurations = {

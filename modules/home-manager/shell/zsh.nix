@@ -19,6 +19,7 @@
       initContent = ''
       source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme 
       source ~/.config/zsh/.p10k.zsh
+      export LD_LIBRARY_PATH=${pkgs.libGL}/lib/
       '';
   };
 

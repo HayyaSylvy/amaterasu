@@ -42,7 +42,7 @@
          QT_QPA_PLATFORM = "wayland";
          ELECTRON_OZONE_PLATFORM_HINT = "auto";
          QT_QPA_PLATFORMTHEME = "qt5ct";
-	 #QT_STYLE_OVERRIDE = "qt5ct";
+	 QT_QPA_PLATFORM_PLUGIN_PATH="${pkgs.libsForQt5.qt5.qtbase}/lib/qt-5.15.18}/plugins";
          TERMINAL = "kitty";
        };
        hotkey-overlay.skip-at-startup = true;

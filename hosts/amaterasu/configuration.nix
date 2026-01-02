@@ -4,7 +4,10 @@
 
 { config, pkgs, inputs, stylix, ... }:
 
-let acermodule = config.boot.kernelPackages.callPackage ./../../pkgs/acer-rgb.nix {}; in
+let 
+acermodule = config.boot.kernelPackages.callPackage ./../../pkgs/acer-rgb.nix {}; 
+nitrosense = pkgs.callPackage ./../../pkgs/nitrosense.nix {inherit pkgs; };
+in
 
 {
   imports =
@@ -125,8 +128,9 @@ let acermodule = config.boot.kernelPackages.callPackage ./../../pkgs/acer-rgb.ni
     description = "Lady Hayya";
     shell = pkgs.zsh;
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [ 
-    	nautilus
+    packages = [ 
+    	pkgs.nautilus
+	nitrosense
     ];
   };
 
@@ -135,7 +139,9 @@ let acermodule = config.boot.kernelPackages.callPackage ./../../pkgs/acer-rgb.ni
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = [
+  environment.systemPackages = with pkgs; [
+    dmidecode
+    libglvnd
   ];
 
   # Allow usage of Kitty as terminal in Nautilus
@@ -151,10 +157,8 @@ let acermodule = config.boot.kernelPackages.callPackage ./../../pkgs/acer-rgb.ni
   services.upower.enable = true;
   services.power-profiles-daemon.enable = true;
 
-  # List services that you want to enable:
-
   # Enable the OpenSSH daemon.
-  # services.openssh.enable = true  
+  # services.openssh.enable = true; 
  
   # Enables Niri (Unstable) + DankMaterialGreeter
   programs.niri.enable = true;
@@ -175,16 +179,6 @@ let acermodule = config.boot.kernelPackages.callPackage ./../../pkgs/acer-rgb.ni
       "/home/ladyhayya/.config/DankMaterialShell/"
     ];
   };
-
-  # Enables Gnome and GDM for screenmirroring (AKA: Baldur's Gate 3 on Biel's House :P)
-  #services.displayManager.gdm.enable = true;
-  #services.desktopManager.gnome.enable = true;
-  # To disable installing GNOME's suite of applications
-  # and only be left with GNOME shell.
-  #services.gnome.core-apps.enable = false;
-  #services.gnome.core-developer-tools.enable = false;
-  #services.gnome.games.enable = false;
-  #environment.gnome.excludePackages = with pkgs; [ gnome-tour gnome-user-docs ];
 
   # Enables Stylix for a unified theming for (pretty much) all apps.
   stylix = {
@@ -250,6 +244,23 @@ let acermodule = config.boot.kernelPackages.callPackage ./../../pkgs/acer-rgb.ni
     arguments = [ "-profile" "4a18bf" "-cache-size" "10MB" ];
   };
 
+  # Replaces the (broken) Niri-Flake polkit with a functional Gnome Polkit.
+  systemd.user.services.niri-flake-polkit.enable = false;
+  security.polkit.enable = true;
+  systemd.user.services.polkit-gnome-authentication-agent-1 = {
+  description = "polkit-gnome-authentication-agent-1";
+  wantedBy = [ "graphical-session.target" ];
+  wants = [ "graphical-session.target" ];
+  after = [ "graphical-session.target" ];
+  serviceConfig = {
+    Type = "simple";
+    ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
+    Restart = "on-failure";
+    RestartSec = 1;
+    TimeoutStopSec = 10;
+  };
+  };
+  
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave

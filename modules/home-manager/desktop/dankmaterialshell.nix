@@ -55,6 +55,7 @@
 
   programs.dankMaterialShell = {
    enable = true;
+   dgop.package = pkgs.dgop;
    default.settings = {
         currentThemeName = "custom";
 	customThemeFile = "/home/ladyhayya/.config/GruvboxRose.json"; # Uses the theme file generated above.
