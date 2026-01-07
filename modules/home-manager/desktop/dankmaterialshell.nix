@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 {
-  # Manually generates a theme for DankMaterialShell, it doesn't use Stylix unfortunatly :(
+  # Manually generates a theme for DankMaterialShell, now with Stylix :D
   xdg.configFile."GruvboxRose.json".text = ''
     {
     "dark": {
@@ -56,7 +56,7 @@
   programs.dankMaterialShell = {
    enable = true;
    dgop.package = pkgs.dgop;
-   default.settings = {
+   settings = {
         currentThemeName = "custom";
 	customThemeFile = "/home/ladyhayya/.config/GruvboxRose.json"; # Uses the theme file generated above.
 	screenPreferences = { 
@@ -89,6 +89,7 @@
    };
     niri = {
       enableSpawn = true;      # Auto-start DMS with niri
+      includes.enable = false;
     };
    enableDynamicTheming = false;  # Disables Matugen, which is useless with Stylix.
    };

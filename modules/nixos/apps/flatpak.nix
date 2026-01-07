@@ -7,7 +7,9 @@
         enable = true;
         update.onActivation = true;
         remotes = [ { name = "flathub"; location = "https://flathub.org/repo/flathub.flatpakrepo"; } ];
-        packages = [ ];
+        packages = [ 
+	"moe.launcher.an-anime-game-launcher"
+	];
    };
 
 }

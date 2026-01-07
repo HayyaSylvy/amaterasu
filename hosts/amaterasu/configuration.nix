@@ -39,7 +39,7 @@ in
       "splash"
       "boot.shell_on_fail"
       "udev.log_priority=3"
-      "rd.systemd.show_status=auto"
+      #"rd.systemd.show_status=auto"
       "nvidia-drm.fbdev=1" 
   ];
 
@@ -168,6 +168,26 @@ in
   nixpkgs.overlays = [ 
   	inputs.niri.overlays.niri 
   	inputs.nix-vscode-extensions.overlays.default
+	(final: prev: {
+        vesktop = prev.vesktop.overrideAttrs (old: {
+          preBuild = ''
+            cp -r ${prev.electron.dist} electron-dist
+            chmod -R u+w electron-dist
+          '';
+          buildPhase = ''
+            runHook preBuild
+
+            pnpm build
+            pnpm exec electron-builder \
+              --dir \
+              -c.asarUnpack="**/*.node" \
+              -c.electronDist="electron-dist" \
+              -c.electronVersion=${prev.electron.version}
+
+            runHook postBuild
+          '';
+        });
+        })
   ];
 
   # Enables DankMaterialGreeter as a frontend for GreetD.

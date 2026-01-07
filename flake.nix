@@ -14,10 +14,7 @@
         url = "github:nix-community/nixvim";
         inputs.nixpkgs.follows = "nixpkgs";
     };
-    #dgop = {
-    #  url = "github:AvengeMedia/dgop";
-    #  inputs.nixpkgs.follows = "nixpkgs";
-    #};
+    nix-gaming.url = "github:fufexan/nix-gaming";
     dankMaterialShell = {
       url = "github:AvengeMedia/DankMaterialShell";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -73,7 +70,7 @@
 		    ./modules/home-manager/apps/spotify.nix # Actually Spiceitfy :P
 		    ./modules/home-manager/apps/discord.nix # Actually Nixcord, which configures Vesktop not the Official Discord app :P
 		    ./modules/home-manager/apps/vscode.nix
-		    ./modules/home-manager/apps/steam.nix
+		    #./modules/home-manager/apps/steam.nix
 		    ./modules/home-manager/apps/kdeconnect.nix
 		    ./modules/home-manager/apps/lutris.nix
 		    ./modules/home-manager/apps/mangohud.nix

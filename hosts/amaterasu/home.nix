@@ -41,12 +41,14 @@
      # Random apps I couldn't fit in a specific module :P
      qbittorrent # Torrent Client (QT)
      prismlauncher # Best Minecraft Launcher EVER (QT)
+     winetricks
+     p7zip
      celluloid # GNOME MPV Player
      image-roll # GNOME Image Viewer
      evince # GNOME Document Viewer
      snapshot # GNOME Camera
      foliate # GNOME E-Book Reader
-     sgdboop # Client for SteamGridDB
+     #sgdboop # Client for SteamGridDB
      # Scripts in Python
      (pkgs.writeScriptBin "rgb-control"
      ("#!${mypython}/bin/python3\n" + (builtins.readFile ./../../pkgs/acer-rgb-control.py)))
