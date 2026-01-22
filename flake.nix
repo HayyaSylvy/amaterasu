@@ -14,13 +14,20 @@
         url = "github:nix-community/nixvim";
         inputs.nixpkgs.follows = "nixpkgs";
     };
-    nix-gaming.url = "github:fufexan/nix-gaming";
     dankMaterialShell = {
       url = "github:AvengeMedia/DankMaterialShell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    dms-plugin-registry = {
+    	url = "github:AvengeMedia/dms-plugin-registry";
+        inputs.nixpkgs.follows = "nixpkgs";
+    };
     niri = {
       url = "github:sodiboo/niri-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    jovian = {
+      url = "github:Jovian-Experiments/Jovian-NixOS";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
@@ -28,7 +35,7 @@
     nixcord.url = "github:kaylorben/nixcord";
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, nix-flatpak, stylix, nixvim, dankMaterialShell, niri, spicetify-nix, nixcord, nix-vscode-extensions, ... }: 
+  outputs = inputs@{ self, nixpkgs, home-manager, nix-flatpak, stylix, nixvim, dankMaterialShell, niri, spicetify-nix, nixcord, jovian, nix-vscode-extensions, ... }: 
 {
     
     nixosConfigurations = {
@@ -43,7 +50,9 @@
           home-manager.nixosModules.home-manager
           nix-flatpak.nixosModules.nix-flatpak
           stylix.nixosModules.stylix
+	  jovian.nixosModules.jovian
           inputs.niri.nixosModules.niri
+	  inputs.dms-plugin-registry.modules.default
 	  inputs.dankMaterialShell.nixosModules.greeter
 	  # Imports other system-related modules
           ./modules/nixos/apps/flatpak.nix
@@ -70,7 +79,7 @@
 		    ./modules/home-manager/apps/spotify.nix # Actually Spiceitfy :P
 		    ./modules/home-manager/apps/discord.nix # Actually Nixcord, which configures Vesktop not the Official Discord app :P
 		    ./modules/home-manager/apps/vscode.nix
-		    #./modules/home-manager/apps/steam.nix
+		    ./modules/home-manager/apps/steam.nix
 		    ./modules/home-manager/apps/kdeconnect.nix
 		    ./modules/home-manager/apps/lutris.nix
 		    ./modules/home-manager/apps/mangohud.nix

@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 {
   # Manually generates a theme for DankMaterialShell, now with Stylix :D
   xdg.configFile."GruvboxRose.json".text = ''
@@ -62,7 +62,10 @@
 	screenPreferences = { 
 		"wallpaper" = "[]";        # Uses the wallpaper provided by WPaperD instead of it's built-in wallpaper engine.
         };
+	disableBuitInWallpaper = true;
 	dockTransparency = 0.9;
+  	dankLauncherV2Size = "compact";
+	dankLauncherV2ShowFooter =  false;
 	blurWallpaperOnOverview = true;
 	weatherLocation = "João Pessoa, Região Nordeste"; # My city :3
 	weatherCoordinates = "-7.1215981,-34.8820280"; # My cities coordinates :P
@@ -85,12 +88,55 @@
 	# -----------------------------
 	qtThemingEnabled = false;
 	gtkThemingEnabled = false;
+	managePluginSettings = true;
 	powerActionConfirm = false;
+  	barConfigs = [
+	  {
+		id = "default";
+		name = "Main Bar";
+		"enabled" = true;
+		position = 0;
+		screenPreferences = [
+		"all"
+		];
+		showOnLastDisplay = true;
+      		"leftWidgets" = [
+        		"launcherButton"
+        		"workspaceSwitcher"
+        		"focusedWindow"
+      		];
+      		"centerWidgets" = [
+        		"music"
+        		"clock"
+        		"weather"
+      		];
+      		"rightWidgets" = [
+        		{ id = "dankKDEConnect"; "enabled" = true; }
+			{ id = "systemTray"; "enabled" = true; }
+			{ id = "clipboard"; "enabled" = true; }
+        		{ id = "cpuUsage"; "enabled" = true; }
+        		{ id = "memUsage"; "enabled" = true; }        
+			{ id = "notificationButton"; "enabled" = true; }
+			{ id = "battery"; "enabled" = true; }
+			{ id = "controlCenterButton"; "enabled" = true;}
+			{ id = "controlPanel"; enabled = true; }
+      		];
+	  }
+      ];
    };
-    niri = {
+   plugins = { 
+	dankKDEConnect = { 
+		enable = true;
+		settings = { 
+			enable = true; 
+		};
+		src = inputs.dms-plugin-registry.packages.${pkgs.system}.dankKDEConnect;
+	};
+   };
+   niri = {
       enableSpawn = true;      # Auto-start DMS with niri
       includes.enable = false;
-    };
+   };
    enableDynamicTheming = false;  # Disables Matugen, which is useless with Stylix.
    };
 

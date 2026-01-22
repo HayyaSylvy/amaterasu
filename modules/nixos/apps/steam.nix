@@ -40,6 +40,8 @@
 		];
 		extraCompatPackages = with pkgs; [ proton-ge-bin ];
 	};
+	jovian.steam.enable = true;
+	jovian.steamos.enableBluetoothConfig = true;
 	environment.systemPackages = with pkgs; [ 
 		gamescope-wsi
 	];
