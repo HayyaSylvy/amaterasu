@@ -215,7 +215,7 @@ in
     	base0D = "fb4934"; # Red
     	base09 = "fe8019";
     	base0A = "fabd2f";
-    	base0B = "b8bb26";
+   	base0B = "b8bb26";
     	base0C = "8ec07c";
     	base08 = "83a598"; #Blue
     	base0E = "d3869b";
