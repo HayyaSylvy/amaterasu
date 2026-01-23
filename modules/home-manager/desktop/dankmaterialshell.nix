@@ -53,7 +53,7 @@
   # Enables WPaperD, a wallpaper Daemon that uses the Stylix wallpaper in any WM. Pretty useful :P
   services.wpaperd.enable = true;
 
-  programs.dankMaterialShell = {
+  programs.dank-material-shell = {
    enable = true;
    dgop.package = pkgs.dgop;
    settings = {

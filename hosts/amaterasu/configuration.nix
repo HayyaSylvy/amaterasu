@@ -141,8 +141,11 @@ in
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     dmidecode
+    python3
     libglvnd
   ];
+
+  services.accounts-daemon.enable = true;
 
   # Allow usage of Kitty as terminal in Nautilus
   programs.nautilus-open-any-terminal = {
@@ -227,7 +230,7 @@ in
 	package = pkgs.catppuccin-cursors.mochaMauve;
 	size = 20;
      };
-     iconTheme  = {
+     icons  = {
 	enable = true;
 	package = pkgs.catppuccin-papirus-folders.override { flavor = "mocha"; accent = "pink"; };
 	dark = "Papirus-Dark";
@@ -240,16 +243,15 @@ in
 
   # This SHOULD set my user picture. SHOULD
   # TLDR: No, this doesn't. TODO: Fix this.
+  # Okay, so it works for GDM but not in GreetD... huh?
   system.activationScripts.script.text = ''
-      mkdir -p /var/lib/AccountsService/{icons,users}
-      cp /home/ladyhayya/.nix-desktop/modules/home-manager/assets/icon.png /var/lib/AccountsService/icons/ladyhayya
-      echo -e "[User]\nIcon=/var/lib/AccountsService/icons/ladyhayya\n" > /var/lib/AccountsService/users/ladyhayya
-
-      chown root:root /var/lib/AccountsService/users/ladyhayya
-      chmod 0600 /var/lib/AccountsService/users/ladyhayya
-
-      chown root:root /var/lib/AccountsService/icons/ladyhayya
-      chmod 0444 /var/lib/AccountsService/icons/ladyhayya
+    mkdir -p /var/lib/AccountsService/{icons,users}
+    cp /home/ladyhayya/.nix-desktop/modules/home-manager/assets/icon.png /var/lib/AccountsService/icons/ladyhayya
+    echo -e "[User]\nIcon=/var/lib/AccountsService/icons/ladyhayya\n" > /var/lib/AccountsService/users/ladyhayya
+    chown root:root /var/lib/AccountsService/users/ladyhayya
+    chmod 0600 /var/lib/AccountsService/users/ladyhayya
+    chown root:root /var/lib/AccountsService/icons/ladyhayya
+    chmod 0444 /var/lib/AccountsService/icons/ladyhayya
   '';
 
   # Disables the firewall altogether.

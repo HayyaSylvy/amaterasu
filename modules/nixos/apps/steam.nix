@@ -36,12 +36,17 @@
 			zlib
 			zstd
 			sudo
+			python3
 
 		];
 		extraCompatPackages = with pkgs; [ proton-ge-bin ];
 	};
 	jovian.steam.enable = true;
 	jovian.steamos.enableBluetoothConfig = true;
+	jovian.decky-loader = {
+	enable = true;
+	user = "ladyhayya";
+	};
 	environment.systemPackages = with pkgs; [ 
 		gamescope-wsi
 	];

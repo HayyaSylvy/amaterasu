@@ -13,6 +13,12 @@
        outputs."eDP-2".scale = 1.25;
        # Setups the keyboard to Br-ABNT
        input.keyboard.xkb.layout = "br";
+       # Ensures this apps ALWAYS start on boot.
+       # Fixes an annoying bug where they only work on a first launch :P
+       spawn-at-startup = [
+	 { argv = ["wapaperd"]; }
+	 { argv = ["kdeconnectd"]; }
+       ];
        # Setups Gestures
        gestures = {
          dnd-edge-view-scroll = {
