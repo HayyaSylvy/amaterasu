@@ -204,36 +204,36 @@ in
   stylix = {
      enable = true;
      base16Scheme = {
-    	base00 = "282828";
-    	base01 = "3c3836";
-    	base02 = "504945";
-    	base03 = "665c54";
-    	base04 = "bdae93";
-    	base05 = "d5c4a1";
-    	base06 = "ebdbb2";
-    	base07 = "fbf1c7";
-    	base0D = "fb4934"; # Red
-    	base09 = "fe8019";
-    	base0A = "fabd2f";
-   	base0B = "b8bb26";
-    	base0C = "8ec07c";
-    	base08 = "83a598"; #Blue
-    	base0E = "d3869b";
-	base0F = "d65d0e";
+       	base00 = "#1e1e2e"; # base
+  	base01 = "#313244"; # surface0
+ 	base02 = "#45475a"; # surface1
+  	base03 = "#6c7086"; # overlay0
+  	base04 = "#a6adc8"; # subtext0
+  	base05 = "#cdd6f4"; # text
+  	base06 = "#f5e0dc"; # rosewater
+  	base07 = "#b4befe"; # lavender
+  	base08 = "#f38ba8"; # red
+  	base09 = "#fab387"; # peach
+  	base0A = "#f9e2af"; # yellow
+  	base0B = "#a6e3a1"; # green
+  	base0C = "#94e2d5"; # teal
+  	base0F = "#89b4fa"; # blue
+  	base0E = "#cba6f7"; # mauve
+  	base0D = "#f5c2e7"; # pink
      };
      # Sets up my cursor theme for all theming engines.
      cursor = {
-        name = "Capitaine Cursors (Gruvbox)";
-	package = pkgs.capitaine-cursors-themed;
-	size = 26;
+        name = "catppuccin-mocha-mauve-cursors";
+	package = pkgs.catppuccin-cursors.mochaMauve;
+	size = 20;
      };
      iconTheme  = {
 	enable = true;
-	package = pkgs.gruvbox-plus-icons;
-	dark = "Gruvbox-Plus-Dark";
+	package = pkgs.catppuccin-papirus-folders.override { flavor = "mocha"; accent = "pink"; };
+	dark = "Papirus-Dark";
      };
      # Sets my wallpaper using WPaperD :P
-     image = ./../../modules/home-manager/assets/gruvy.png;
+     image = ./../../modules/home-manager/assets/cathy.jpg;
      polarity = "dark";
      enableReleaseChecks = false;
   };
