@@ -145,6 +145,8 @@ in
     libglvnd
   ];
 
+  # Enables the AccountDaemon.
+  # Minor stuff... but it does allows me to declare my Profile Picture :P.
   services.accounts-daemon.enable = true;
 
   # Allow usage of Kitty as terminal in Nautilus
@@ -241,9 +243,7 @@ in
      enableReleaseChecks = false;
   };
 
-  # This SHOULD set my user picture. SHOULD
-  # TLDR: No, this doesn't. TODO: Fix this.
-  # Okay, so it works for GDM but not in GreetD... huh?
+  # This sets my user picture.
   system.activationScripts.script.text = ''
     mkdir -p /var/lib/AccountsService/{icons,users}
     cp /home/ladyhayya/.nix-desktop/modules/home-manager/assets/icon.png /var/lib/AccountsService/icons/ladyhayya
