@@ -13,12 +13,27 @@
 		enable = true;
 		protontricks.enable = true;
 		package = pkgs.steam.override {
-			extraEnv = {
-        		 __GLX_VENDOR_LIBRARY_NAME = "nvidia";
-        		 __NV_PRIME_RENDER_OFFLOAD = "1";
-        		 __NV_PRIME_RENDER_OFFLOAD_PROVIDER = "NVIDIA-G0";
-        		 __VK_LAYER_NV_optimus = "NVIDIA_only";
-			};
+		#	extraEnv = {
+        	#	 __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+        	#	 __NV_PRIME_RENDER_OFFLOAD = "1";
+        	#	 __NV_PRIME_RENDER_OFFLOAD_PROVIDER = "NVIDIA-G0";
+        	#	 __VK_LAYER_NV_optimus = "NVIDIA_only";
+		#	};
+		extraLibraries = pkgs: [ pkgs.xorg.libxcb ];
+        	extraPkgs =
+          	pkgs: with pkgs; [
+            	xorg.libXcursor
+            	xorg.libXi
+            	xorg.libXinerama
+            	xorg.libXScrnSaver
+            	libpng
+            	libpulseaudio
+            	libvorbis
+            	stdenv.cc.cc.lib
+            	libkrb5
+            	keyutils
+            	gamemode
+          	];
 		};
 		extraPackages = with pkgs; [
 			gamescope
@@ -37,7 +52,18 @@
 			zstd
 			sudo
 			python3
-
+			xorg.libxcb
+	    		xorg.libXcursor
+            		xorg.libXi
+            		xorg.libXinerama
+            		xorg.libXScrnSaver
+            		libpng
+            		libpulseaudio
+            		libvorbis
+            		stdenv.cc.cc.lib
+            		libkrb5
+            		keyutils
+            		gamemode
 		];
 		extraCompatPackages = with pkgs; [ proton-ge-bin ];
 	};
@@ -48,6 +74,7 @@
 	user = "ladyhayya";
 	};
 	environment.systemPackages = with pkgs; [ 
+		gamescope
 		gamescope-wsi
 	];
 

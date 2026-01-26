@@ -158,9 +158,13 @@ in
   # Enables GVFS to fix bugs on Nautilus.
   services.gvfs.enable = true;
 
-  # Enables Power Profile Daemon and Upower for (basic) perfomance control.
+  # Enables TLP and Upower for perfomance control.
   services.upower.enable = true;
-  services.power-profiles-daemon.enable = true;
+  #services.power-profiles-daemon.enable = true;
+  services.tlp = {
+  	enable = true;
+	pd.enable = true;
+  };
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true; 
