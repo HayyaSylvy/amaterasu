@@ -7,7 +7,7 @@ stdenv.mkDerivation rec {
     owner = "HayyaSylvy";
     repo = "acer-rgb-keyboard-linux-module";
     rev = "${version}";
-    sha256 = "sha256-wLvapt8oR7s/bYt9Oxq+7Fgz8qKbGMzP5eZkkArMPGQ=";
+    sha256 = "sha256-aBdxF3GJX8jJjwBvHxHnzNNO/r5GiVpAbkfTsj5jD1Q=";
   };
 
    setSourceRoot = ''

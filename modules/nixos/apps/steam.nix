@@ -70,8 +70,12 @@
 	jovian.steam.enable = true;
 	jovian.steamos.enableBluetoothConfig = true;
 	jovian.decky-loader = {
-	enable = true;
-	user = "ladyhayya";
+		enable = true;
+		user = "ladyhayya";
+		plugins = with pkgs.decky-plugins; [
+		protondb_badges
+		css_loader
+		];
 	};
 	environment.systemPackages = with pkgs; [ 
 		gamescope

@@ -39,6 +39,8 @@ in
       "splash"
       "boot.shell_on_fail"
       "udev.log_priority=3"
+      "acpi_backlight=native"
+      "acpi_osi"
       #"rd.systemd.show_status=auto"
       "nvidia-drm.fbdev=1" 
   ];
@@ -160,10 +162,13 @@ in
 
   # Enables TLP and Upower for perfomance control.
   services.upower.enable = true;
-  #services.power-profiles-daemon.enable = true;
   services.tlp = {
   	enable = true;
 	pd.enable = true;
+	settings = {
+    	CPU_SCALING_GOVERNOR_ON_AC = "performance";
+    	CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
+	};
   };
 
   # Enable the OpenSSH daemon.
