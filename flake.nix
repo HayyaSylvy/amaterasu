@@ -75,7 +75,7 @@
 		    # Imports some configurations for apps I declare in Home Manager
 		    ./modules/home-manager/apps/emulation.nix
 		    ./modules/home-manager/apps/floorp.nix
-		    #./modules/home-manager/apps/obsidian.nix
+		    ./modules/home-manager/apps/obsidian.nix
 		    ./modules/home-manager/apps/spotify.nix # Actually Spiceitfy :P
 		    ./modules/home-manager/apps/discord.nix # Actually Nixcord, which configures Vesktop not the Official Discord app :P
 		    ./modules/home-manager/apps/vscode.nix

@@ -4,8 +4,8 @@ stdenv.mkDerivation rec {
   version = "main";
 
   src = fetchFromGitHub {
-    owner = "HayyaSylvy";
-    repo = "acer-rgb-keyboard-linux-module";
+    owner = "JafarAkhondali";
+    repo = "acer-predator-turbo-and-rgb-keyboard-linux-module";
     rev = "${version}";
     sha256 = "sha256-aBdxF3GJX8jJjwBvHxHnzNNO/r5GiVpAbkfTsj5jD1Q=";
   };
