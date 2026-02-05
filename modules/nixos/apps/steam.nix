@@ -7,7 +7,7 @@
 	};
         programs.gamescope = {
 		enable = true;
-		capSysNice = false;
+		#capSysNice = false;
 	};
 	programs.steam = {
 		enable = true;
