@@ -48,7 +48,6 @@
      evince # GNOME Document Viewer
      snapshot # GNOME Camera
      foliate # GNOME E-Book Reader
-     #sgdboop # Client for SteamGridDB
      # Scripts in Python
      (pkgs.writeScriptBin "rgb-control"
      ("#!${mypython}/bin/python3\n" + (builtins.readFile ./../../pkgs/acer-rgb-control.py)))
