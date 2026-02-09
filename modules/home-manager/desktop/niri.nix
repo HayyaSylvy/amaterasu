@@ -261,7 +261,7 @@
          # Niri Overview shortcut
 	 "Mod+Space".action.spawn = ["niri" "msg" "action" "toggle-overview"];
          # Lockscreen and Exit Niri shortcuts
-	 "Mod+Alt+L".action.spawn = ["dms" "ipc" "call" "lock" "lock"];
+	 "Mod+Alt+L".action.spawn = [ "dms" "ipc" "call" "lock" "lock"];
 	 "Mod+Shift+E".action.quit.skip-confirmation = false;
 	 "Mod+Shift+P".action.spawn = ["niri" "msg" "action" "power-off-monitors"  ];
          "Mod+Escape" = {
