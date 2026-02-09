@@ -139,12 +139,14 @@ in
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
+  # List packages installed in system profile. 
+  # De-facto, this is a list of packages that 
+  # A: Don't need a module or B: Are dependencies else something breaks wittout them. 
   environment.systemPackages = with pkgs; [
     dmidecode
     python3
     libglvnd
+    nextdns
   ];
 
   # Enables the AccountDaemon.
@@ -270,9 +272,19 @@ in
   	allowedUDPPortRanges = [ { from = 1714; to = 1764; } ]; 
   };
 
+  # Enables NextDNS and configures the profile.
   services.nextdns = {
     enable = true;
     arguments = [ "-profile" "4a18bf" "-cache-size" "10MB" ];
+  };
+
+  # Setups a script to automate NextDNS activation.
+  systemd.services.nextdns-activate = {
+    script = ''
+      /run/current-system/sw/bin/nextdns activate
+    '';
+    after = [ "nextdns.service" ];
+    wantedBy = [ "multi-user.target" ];
   };
 
   # Replaces the (broken) Niri-Flake polkit with a functional Gnome Polkit.
