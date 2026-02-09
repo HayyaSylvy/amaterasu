@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, lib, inputs, ... }:
 {
 
   # Enables WPaperD, a wallpaper Daemon that uses the Stylix wallpaper in any WM. Pretty useful :P
@@ -14,7 +14,7 @@
 		"wallpaper" = "[]";        # Uses the wallpaper provided by WPaperD instead of it's built-in wallpaper engine.
         };
 	disableBuitInWallpaper = true;
-	dockTransparency = 0.9;
+	dockTransparency = lib.mkForce 0.9;
   	dankLauncherV2Size = "compact";
 	dankLauncherV2ShowFooter =  false;
 	blurWallpaperOnOverview = true;

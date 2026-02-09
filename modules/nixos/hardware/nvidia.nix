@@ -23,8 +23,8 @@
    };
 
   # Creates a Specialisation that disables the NVIDIA dGPU.
-  # This boosts the battery life of this laptop by A LOT plus the AMDGPU is pretty good on its own.
-  # A reminder to the future Hannah: Please don't use default config when NOT connected to the power supply.
+  # This boosts the battery life of this laptop by A LOT, plus the AMDGPU is pretty good on its own for lighter tasks.
+  # A reminder to the future Hannah: Please don't use default config when NOT connected to the power supply, it is pretty damn inneficient.
   specialisation.unimode.configuration = {
     services.xserver.videoDrivers = lib.mkForce [ "amdgpu" ];
     boot.extraModprobeConfig = ''
