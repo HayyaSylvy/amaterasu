@@ -9,6 +9,7 @@
         remotes = [ { name = "flathub"; location = "https://flathub.org/repo/flathub.flatpakrepo"; } ];
         packages = [ 
 	"moe.launcher.an-anime-game-launcher"
+	"gg.minion.Minion"
 	];
    };
 

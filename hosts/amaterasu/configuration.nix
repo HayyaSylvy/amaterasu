@@ -129,8 +129,8 @@ in
     isNormalUser = true;
     description = "Lady Hayya";
     shell = pkgs.zsh;
-    extraGroups = [ "networkmanager" "wheel" ];
-    packages = [ 
+    extraGroups = [ "networkmanager" "wheel" "libvirtd" ];
+    packages = [
     	pkgs.nautilus
 	nitrosense
     ];
@@ -174,8 +174,19 @@ in
   };
 
   # Enable the OpenSSH daemon.
-  # services.openssh.enable = true; 
- 
+  # services.openssh.enable = true;
+
+  # Enable QEMU/KVM and Virt-Manager.
+  virtualisation.libvirtd.enable = true;
+  programs.virt-manager.enable = true;
+  virtualisation.libvirtd.onBoot = "start";
+
+  # Enables Podman for Distrobox
+  virtualisation.podman = {
+        enable = true;
+  	dockerCompat = true;
+  };
+
   # Enables Niri (Unstable) + DankMaterialGreeter
   programs.niri.enable = true;
   programs.niri.package = pkgs.niri-unstable;
@@ -254,7 +265,7 @@ in
      enableReleaseChecks = false;
   };
 
-  # This sets my user picture.
+  # This sets my user picture, and autoimports (in theory) my Distrobox Containers.ini.
   system.activationScripts.script.text = ''
     mkdir -p /var/lib/AccountsService/{icons,users}
     cp /home/ladyhayya/.nix-desktop/modules/home-manager/assets/icon.png /var/lib/AccountsService/icons/ladyhayya

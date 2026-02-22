@@ -10,7 +10,7 @@
 	     # Setups options regarding search engine
 	     search = {
 	        force = true;
-	        default = "startpage"; # RIP Whoogle, wished I could use you :(
+	        default = "ddg"; # RIP Whoogle, wished I could use you :(
 		engines = {
               	    "Nix Packages" = {
                       urls = [{
@@ -21,6 +21,22 @@
                   	];
                       }];
                       definedAliases = [ "@np" ];
+                    };
+              	    "NixOS Options" = {
+                      urls = [{
+        		template = "https://search.nixos.org/options";
+                  	params = [
+                    	  { name = "type"; value = "options"; }
+                    	  { name = "query"; value = "{searchTerms}"; }
+                  	];
+                      }];
+                      definedAliases = [ "@no" ];
+                    };
+              	    "Home Manager Options" = {
+                      urls = [{
+        		template = "https://home-manager-options.extranix.com/?query={searchTerms}&release=master";
+                      }];
+                      definedAliases = [ "@hm" ];
                     };
 	        };
 	     };

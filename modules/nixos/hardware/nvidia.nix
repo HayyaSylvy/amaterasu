@@ -27,6 +27,7 @@
   # A reminder to the future Hannah: Please don't use default config when NOT connected to the power supply, it is pretty damn inneficient.
   specialisation.unimode.configuration = {
     services.xserver.videoDrivers = lib.mkForce [ "amdgpu" ];
+    powerManagement.powertop.enable = true;
     boot.extraModprobeConfig = ''
     blacklist nouveau
     options nouveau modeset=0

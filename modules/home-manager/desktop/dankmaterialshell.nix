@@ -62,8 +62,7 @@
         		"weather"
       		];
       		"rightWidgets" = [
-        		{ id = "dankKDEConnect"; "enabled" = true; }
-			{ id = "systemTray"; "enabled" = true; }
+			{ id = "systemTray"; "enabled" = true; }        			      { id = "dankKDEConnect"; "enabled" = true; }
 			{ id = "clipboard"; "enabled" = true; }
         		{ id = "cpuUsage"; "enabled" = true; }
         		{ id = "memUsage"; "enabled" = true; }        

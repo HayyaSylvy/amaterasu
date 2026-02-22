@@ -69,6 +69,7 @@
 		    ./modules/home-manager/desktop/dankmaterialshell.nix
 		    # Imports some configurations for apps I declare in Home Manager
 		    ./modules/home-manager/apps/emulation.nix
+		    ./modules/home-manager/apps/distrobox.nix
 		    ./modules/home-manager/apps/floorp.nix
 		    ./modules/home-manager/apps/obsidian.nix
 		    ./modules/home-manager/apps/spotify.nix # Actually Spiceitfy :P
