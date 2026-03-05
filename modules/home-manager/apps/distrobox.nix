@@ -11,15 +11,9 @@
     		  additional_packages = "git";
     		  entry = false;
 		  enableSystemdUnit = true;
-    		  image = "quay.io/toolbx-images/debian-toolbox:latest";
-  		};
-  		arch = {
-    		  additional_packages = "git base-devel";
-    		  entry = false;
-		  enableSystemdUnit = true;
-    		  image = "quay.io/toolbx/arch-toolbox:latest";
-  		};	
-	};
+   		  image = "quay.io/toolbx-images/debian-toolbox:latest";
+		};
+        };
     };
 
 }

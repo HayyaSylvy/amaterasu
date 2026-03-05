@@ -176,10 +176,10 @@ in
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
 
-  # Enable QEMU/KVM and Virt-Manager.
-  virtualisation.libvirtd.enable = true;
-  programs.virt-manager.enable = true;
-  virtualisation.libvirtd.onBoot = "start";
+  # Enable QEMU/KVM and Virt-Manager. Disabled right now due to a bug :(
+  #virtualisation.libvirtd.enable = true;
+  #programs.virt-manager.enable = true;
+  #virtualisation.libvirtd.onBoot = "start";
 
   # Enables Podman for Distrobox
   virtualisation.podman = {
@@ -284,19 +284,19 @@ in
   };
 
   # Enables NextDNS and configures the profile.
-  services.nextdns = {
-    enable = true;
-    arguments = [ "-profile" "4a18bf" "-cache-size" "10MB" ];
-  };
+  #services.nextdns = {
+  #  enable = true;
+  #  arguments = [ "-profile" "4a18bf" "-cache-size" "10MB" ];
+  #};
 
   # Setups a script to automate NextDNS activation.
-  systemd.services.nextdns-activate = {
-    script = ''
-      /run/current-system/sw/bin/nextdns activate
-    '';
-    after = [ "nextdns.service" ];
-    wantedBy = [ "multi-user.target" ];
-  };
+  # systemd.services.nextdns-activate = {
+  #  script = ''
+  #    /run/current-system/sw/bin/nextdns activate
+  #  '';
+  #  after = [ "nextdns.service" ];
+  #  wantedBy = [ "multi-user.target" ];
+  #};
 
   # Replaces the (broken) Niri-Flake polkit with a functional Gnome Polkit.
   systemd.user.services.niri-flake-polkit.enable = false;

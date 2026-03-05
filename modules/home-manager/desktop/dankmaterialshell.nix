@@ -7,20 +7,30 @@
   programs.dank-material-shell = {
    enable = true;
    dgop.package = pkgs.dgop;
+   session = {
+	pinnedApps = [
+    	"floorp"
+    	"org.gnome.Nautilus"
+    	"kitty"
+    	"steam"
+    	"org.qbittorrent.qBittorrent"
+    	"com.github.johnfactotum.Foliate"
+    	"vesktop"
+    	"spotify"
+    	"obsidian"
+    	"codium"
+    	".virt-manager-wrapped"
+  	];
+   };
    settings = {
         #currentThemeName = "custom";
 	#customThemeFile = "/home/ladyhayya/.config/GruvboxRose.json"; # Uses the theme file generated above.
-	screenPreferences = { 
-		"wallpaper" = "[]";        # Uses the wallpaper provided by WPaperD instead of it's built-in wallpaper engine.
-        };
-	disableBuitInWallpaper = true;
+	#disableBuitInWallpaper = true;
 	dockTransparency = lib.mkForce 0.9;
   	dankLauncherV2Size = "compact";
 	dankLauncherV2ShowFooter =  false;
 	blurWallpaperOnOverview = true;
-	weatherLocation = "João Pessoa, Região Nordeste"; # My city :3
-	weatherCoordinates = "-7.1215981,-34.8820280"; # My cities coordinates :P
-	launcherLogoMode = "os"; # So it uses a Nix logo.
+	launcherLogoMode = "os"; # So it uses a NixOS logo.
 	# ----- Setting up the Dock ----
 	showDock = true;
 	dockGroupByApp = true;
@@ -36,6 +46,7 @@
 	dockIconSize = 50;
 	dockBorderOpacity = 1;
 	dockBorderThickness = 2;
+	useAutoLocation = true;
 	# -----------------------------
 	qtThemingEnabled = false;
 	gtkThemingEnabled = false;
@@ -85,7 +96,10 @@
    };
    niri = {
       enableSpawn = true;      # Auto-start DMS with niri
-      includes.enable = false;
+      includes = {
+      enable = true;
+      override = false;
+      };
    };
    enableDynamicTheming = false;  # Disables Matugen, which is useless with Stylix.
    };
