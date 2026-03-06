@@ -9,7 +9,7 @@
    dgop.package = pkgs.dgop;
    session = {
 	pinnedApps = [
-    	"floorp"
+    	"zen-beta"
     	"org.gnome.Nautilus"
     	"kitty"
     	"steam"

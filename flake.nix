@@ -2,7 +2,8 @@
   description = "NixOS configuration";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    #nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:ryand56/nixpkgs/fix/libvirt/vsie";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
@@ -25,6 +26,13 @@
     niri = {
       url = "github:sodiboo/niri-flake";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+    zen-browser = {
+    url = "github:0xc000022070/zen-browser-flake";
+     inputs = {
+      nixpkgs.follows = "nixpkgs";
+      home-manager.follows = "home-manager";
+     };
     };
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
@@ -70,7 +78,7 @@
 		    # Imports some configurations for apps I declare in Home Manager
 		    ./modules/home-manager/apps/emulation.nix
 		    ./modules/home-manager/apps/distrobox.nix
-		    ./modules/home-manager/apps/floorp.nix
+		    ./modules/home-manager/apps/zenbrowser.nix
 		    ./modules/home-manager/apps/obsidian.nix
 		    ./modules/home-manager/apps/spotify.nix # Actually Spiceitfy :P
 		    ./modules/home-manager/apps/discord.nix # Actually Nixcord, which configures Vesktop not the Official Discord app :P
@@ -89,6 +97,7 @@
                     nixvim.homeModules.nixvim
 		    nixcord.homeModules.nixcord
 		    spicetify-nix.homeManagerModules.default		  
+		    inputs.zen-browser.homeModules.beta
                     inputs.dankMaterialShell.homeModules.dankMaterialShell.default
                     inputs.dankMaterialShell.homeModules.dankMaterialShell.niri
                   ];
