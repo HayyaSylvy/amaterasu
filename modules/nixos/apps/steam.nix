@@ -20,6 +20,16 @@
 		];
 		extraCompatPackages = with pkgs; [ proton-ge-bin ];
 	};
+	jovian.steam.enable = true;
+	jovian.decky-loader = {
+		enable = true;
+		user = "ladyhayya";
+		plugins = with pkgs.decky-plugins; [
+		protondb_badges
+		css_loader
+		steamgriddb
+		];
+	};
 	environment.systemPackages = with pkgs; [ 
 		gamescope
 		gamescope-wsi
