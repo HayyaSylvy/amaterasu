@@ -28,6 +28,7 @@
 		protondb_badges
 		css_loader
 		steamgriddb
+		decky_terminal
 		];
 	};
 	environment.systemPackages = with pkgs; [ 

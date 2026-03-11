@@ -2,8 +2,7 @@
   description = "NixOS configuration";
 
   inputs = {
-    #nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs.url = "github:ryand56/nixpkgs/fix/libvirt/vsie";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
@@ -90,7 +89,6 @@
 		    ./modules/home-manager/apps/vscode.nix
 		    ./modules/home-manager/apps/steam.nix
 		    ./modules/home-manager/apps/kdeconnect.nix
-		    ./modules/home-manager/apps/lutris.nix
 		    ./modules/home-manager/apps/mangohud.nix
 		    ./modules/home-manager/apps/kitty.nix # :3
 		    ./modules/home-manager/apps/neovim.nix # should be Nixvim instead, idk work the same for me :P

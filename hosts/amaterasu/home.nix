@@ -36,6 +36,7 @@
      # Fastfetch as fetch backend, Hyfetch for neofetch but PRIDE :3
      hyfetch
      fastfetch
+     faugus-launcher
      # Fonts needed for Powerlevel10k
      meslo-lgs-nf
      # Random apps I couldn't fit in a specific module :P
