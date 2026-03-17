@@ -3,7 +3,6 @@
   # Declarative setup some of Zen's configurations. It still requires Firefox Sync for my extensions and some minor stuff.
   programs.zen-browser = {
        enable = true;
-       suppressXdgMigrationWarning = true;
        policies = {
          AutofillAddressEnabled = true;
     	 AutofillCreditCardEnabled = false;

@@ -7,7 +7,7 @@
      		container_manager="podman";
 	};
 	containers = {
-  		debian = {
+  		lesbian = {
     		  additional_packages = "git";
     		  entry = false;
 		  enableSystemdUnit = true;

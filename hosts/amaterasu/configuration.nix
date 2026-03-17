@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, inputs, stylix, ... }:
+{ config, pkgs, inputs, stylix, lib, ... }:
 
 let 
 acermodule = config.boot.kernelPackages.callPackage ./../../pkgs/acer-rgb.nix {}; 
@@ -15,7 +15,7 @@ in
       ./hardware-configuration.nix
     ];
 
-  # Bootloader.
+  # Enables SystemD Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
@@ -146,6 +146,7 @@ in
     dmidecode
     python3
     libglvnd
+    sbctl
     nextdns
   ];
 
