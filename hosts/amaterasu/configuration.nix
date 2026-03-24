@@ -146,7 +146,6 @@ in
     dmidecode
     python3
     libglvnd
-    sbctl
     nextdns
   ];
 
@@ -178,9 +177,11 @@ in
   # services.openssh.enable = true;
 
   # Enable QEMU/KVM and Virt-Manager. Disabled right now due to a bug :(
-  virtualisation.libvirtd.enable = true;
+  virtualisation.libvirtd = {
+    enable = true;
+    onBoot = "start";
+  };
   programs.virt-manager.enable = true;
-  virtualisation.libvirtd.onBoot = "start";
 
   # Enables Podman for Distrobox
   virtualisation.podman = {
