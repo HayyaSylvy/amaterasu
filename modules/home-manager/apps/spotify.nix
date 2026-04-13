@@ -12,6 +12,7 @@ in
        			adblockify
 			fullAppDisplay
        			hidePodcasts
+			romajiConvert
      		];
 		wayland = true;
 	};
