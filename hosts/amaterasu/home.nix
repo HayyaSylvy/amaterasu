@@ -36,7 +36,6 @@
      # Fastfetch as fetch backend, Hyfetch for neofetch but PRIDE :3
      hyfetch
      fastfetch
-     faugus-launcher
      # Fonts needed for Powerlevel10k
      meslo-lgs-nf
      noto-fonts-cjk-sans

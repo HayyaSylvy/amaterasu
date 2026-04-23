@@ -89,6 +89,7 @@
 		    ./modules/home-manager/apps/vscode.nix
 		    #./modules/home-manager/apps/steam.nix # This module is REALLY unstable, disabling it for now.
 		    ./modules/home-manager/apps/kdeconnect.nix
+		    ./modules/home-manager/apps/lutris.nix
 		    ./modules/home-manager/apps/mangohud.nix
 		    ./modules/home-manager/apps/kitty.nix # :3
 		    ./modules/home-manager/apps/neovim.nix # should be Nixvim instead, idk work the same for me :P
