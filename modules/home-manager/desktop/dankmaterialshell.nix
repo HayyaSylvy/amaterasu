@@ -10,12 +10,12 @@
    session = {
 	pinnedApps = [
     	"zen-beta"
+	"com.google.Chrome"
     	"org.gnome.Nautilus"
     	"kitty"
     	"steam"
     	"org.qbittorrent.qBittorrent"
     	"com.github.johnfactotum.Foliate"
-    	"vesktop"
     	"spotify"
     	"obsidian"
     	"codium"

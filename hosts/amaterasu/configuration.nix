@@ -127,7 +127,7 @@ in
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.ladyhayya = {
     isNormalUser = true;
-    description = "Lady Hayya";
+    description = "Lh";
     shell = pkgs.zsh;
     extraGroups = [ "networkmanager" "wheel" "libvirtd" ];
     packages = [
@@ -279,7 +279,8 @@ in
 	package = pkgs.papirus-nord;
 	dark = "Papirus-Dark";
      };
-     # Sets my wallpaper using WPaperD :P
+     # Sets my wallpaper using WPaperD....
+     # wish I could keep my internal jokes but not while my life is at risk.
      image = ./../../modules/home-manager/assets/ind-dysphoria.jpg;
      polarity = "dark";
      enableReleaseChecks = false;

@@ -44,6 +44,7 @@
      prismlauncher # Best Minecraft Launcher EVER (QT)
      winetricks
      p7zip
+     kdePackages.filelight
      celluloid # GNOME MPV Player
      image-roll # GNOME Image Viewer
      evince # GNOME Document Viewer
