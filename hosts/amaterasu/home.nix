@@ -42,6 +42,7 @@
      # Random apps I couldn't fit in a specific module :P
      qbittorrent # Torrent Client (QT)
      prismlauncher # Best Minecraft Launcher EVER (QT)
+     kdePackages.filelight
      winetricks
      p7zip
      celluloid # GNOME MPV Player
