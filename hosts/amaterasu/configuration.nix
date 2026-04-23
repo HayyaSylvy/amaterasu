@@ -248,50 +248,41 @@ in
   stylix = {
      enable = true;
      base16Scheme = {
-       	base00 = "#1e1e2e"; # base
-  	base01 = "#313244"; # surface0
- 	base02 = "#45475a"; # surface1
-  	base03 = "#6c7086"; # overlay0
-  	base04 = "#a6adc8"; # subtext0
-  	base05 = "#cdd6f4"; # text
-  	base06 = "#f5e0dc"; # rosewater
-  	base07 = "#b4befe"; # lavender
-  	base08 = "#f38ba8"; # red
-  	base09 = "#fab387"; # peach
-  	base0A = "#f9e2af"; # yellow
-  	base0B = "#a6e3a1"; # green
-  	base0C = "#94e2d5"; # teal
-  	base0F = "#89b4fa"; # blue
-  	base0E = "#cba6f7"; # mauve
-  	base0D = "#f5c2e7"; # pink
+        # Temporary dypshoria inducing pallet.... so I still have a roof :(
+	# TODO: Revert to a happier pallet once I get my freedom :(
+       	base00 = "#2E3440";
+  	base01 = "#3B4252";
+  	base02 = "#434C5E";
+  	base03 = "#4C566A";
+  	base04 = "#D8DEE9";
+  	base05 = "#E5E9F0";
+  	base06 = "#ECEFF4";
+  	base07 = "#8FBCBB";
+  	base08 = "#BF616A";
+  	base09 = "#D08770";
+  	base0A = "#EBCB8B";
+  	base0B = "#A3BE8C";
+  	base0C = "#88C0D0";
+  	base0D = "#81A1C1";
+  	base0E = "#B48EAD";
+  	base0F = "#5E81AC";
      };
      # Sets up my cursor theme for all theming engines.
      cursor = {
-        name = "catppuccin-mocha-mauve-cursors";
-	package = pkgs.catppuccin-cursors.mochaMauve;
+        # Same situation as before
+        name = "Nordzy-cursors";
+	package = pkgs.nordzy-cursor-theme;
 	size = 20;
      };
      icons  = {
 	enable = true;
-	package = pkgs.catppuccin-papirus-folders.override { flavor = "mocha"; accent = "pink"; };
 	dark = "Papirus-Dark";
      };
      # Sets my wallpaper using WPaperD :P
-     image = ./../../modules/home-manager/assets/cathy.jpg;
+     image = ./../../modules/home-manager/assets/ind-dysphoria.jpg;
      polarity = "dark";
      enableReleaseChecks = false;
   };
-
-  # This sets my user picture, and autoimports (in theory) my Distrobox Containers.ini.
-  system.activationScripts.script.text = ''
-    mkdir -p /var/lib/AccountsService/{icons,users}
-    cp /home/ladyhayya/.nix-desktop/modules/home-manager/assets/icon.png /var/lib/AccountsService/icons/ladyhayya
-    echo -e "[User]\nIcon=/var/lib/AccountsService/icons/ladyhayya\n" > /var/lib/AccountsService/users/ladyhayya
-    chown root:root /var/lib/AccountsService/users/ladyhayya
-    chmod 0600 /var/lib/AccountsService/users/ladyhayya
-    chown root:root /var/lib/AccountsService/icons/ladyhayya
-    chmod 0444 /var/lib/AccountsService/icons/ladyhayya
-  '';
 
   # Disables the firewall altogether.
   networking.firewall = {
