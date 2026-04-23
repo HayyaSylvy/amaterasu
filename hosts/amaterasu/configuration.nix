@@ -276,6 +276,7 @@ in
      };
      icons  = {
 	enable = true;
+	package = pkgs.papirus-nord;
 	dark = "Papirus-Dark";
      };
      # Sets my wallpaper using WPaperD :P
