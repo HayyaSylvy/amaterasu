@@ -273,18 +273,17 @@ in
      # Sets up my cursor theme for all theming engines.
      cursor = {
         # Same situation as before
-        name = "Nordzy-cursors";
-	package = pkgs.nordzy-cursor-theme;
+	name = "catppuccin-mocha-mauve-cursors";
+	package = pkgs.catppuccin-cursors.mochaMauve;
 	size = 20;
      };
      icons  = {
 	enable = true;
-	package = pkgs.papirus-nord;
+	package = pkgs.catppuccin-papirus-folders.override { flavor = "mocha"; accent = "pink"; };
 	dark = "Papirus-Dark";
      };
-     # Sets my wallpaper using WPaperD....
-     # wish I could keep my internal jokes but not while my life is at risk.
-     image = ./../../modules/home-manager/assets/ind-dysphoria.jpg;
+     # Sets my wallpaper using WPaperD :P
+     image = ./../../modules/home-manager/assets/cathy.jpg;
      polarity = "dark";
      enableReleaseChecks = false;
   };
