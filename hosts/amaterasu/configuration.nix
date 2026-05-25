@@ -217,6 +217,11 @@ in
           '';
         });
         })
+      (_: prev: {
+      openldap = prev.openldap.overrideAttrs {
+        doCheck = !prev.stdenv.hostPlatform.isi686;
+      };
+      })
   ];
 
   # Enables NextDNS and configures the profile.
