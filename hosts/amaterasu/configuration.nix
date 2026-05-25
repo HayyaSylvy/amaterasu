@@ -253,8 +253,6 @@ in
   stylix = {
      enable = true;
      base16Scheme = {
-        # Temporary dypshoria inducing pallet.... so I still have a roof :(
-	# TODO: Revert to a happier pallet once I get my freedom :(
        	base00 = "#2E3440";
   	base01 = "#3B4252";
   	base02 = "#434C5E";
