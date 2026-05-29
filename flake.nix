@@ -47,7 +47,7 @@
     
     nixosConfigurations = {
       amaterasu = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
+	system = "x86_64-linux";
 	specialArgs = {inherit inputs;};
         modules = [
           # Imports essential system-related configurations
@@ -66,7 +66,7 @@
 	  ./modules/nixos/apps/steam.nix
 	  ./modules/nixos/hardware/nvidia.nix
 	  ./modules/nixos/apps/syncthing.nix
-          # Setups Home Manager for "Lady Hayya" (AKA: this cute girl here :3)
+          # Setups Home Manager for "Lady Hayya" (AKA: the penname the girl who wrote all this code :3)
           {
             home-manager = { 
                useGlobalPkgs = true;
@@ -87,7 +87,7 @@
 		    ./modules/home-manager/apps/spotify.nix # Actually Spiceitfy :P
 		    ./modules/home-manager/apps/discord.nix # Actually Nixcord, which configures Vesktop not the Official Discord app :P
 		    ./modules/home-manager/apps/vscode.nix
-		    #./modules/home-manager/apps/steam.nix # This module is REALLY unstable, disabling it for now.
+		    ./modules/home-manager/apps/steam.nix # This module is unstable, so I may disable it in near future.
 		    ./modules/home-manager/apps/kdeconnect.nix
 		    ./modules/home-manager/apps/lutris.nix
 		    ./modules/home-manager/apps/mangohud.nix
@@ -97,13 +97,13 @@
 		    ./modules/home-manager/shell/zsh.nix
 		    ./modules/home-manager/shell/git.nix
 		    # Imports the module that actually make some of the ones listed above work. 
-		    # Thank you for the authors, these are pretty incredible and useful :D
+		    # Thanks for the authors, these are incredibly useful :D
                     nixvim.homeModules.nixvim
 		    nixcord.homeModules.nixcord
 		    spicetify-nix.homeManagerModules.default		  
 		    inputs.zen-browser.homeModules.beta
-                    inputs.dankMaterialShell.homeModules.dankMaterialShell.default
-                    inputs.dankMaterialShell.homeModules.dankMaterialShell.niri
+                    inputs.dankMaterialShell.homeModules.dank-material-shell
+                    inputs.dankMaterialShell.homeModules.niri
                   ];
                };
             };

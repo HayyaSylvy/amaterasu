@@ -1,3 +1,4 @@
+# Not my code, credits to user reedrw from making a functional (though not 100% stable) module for Steam.
 { pkgs, lib, config, osConfig, ... }:
 
 lib.optionalAttrs osConfig.programs.steam.enable {
