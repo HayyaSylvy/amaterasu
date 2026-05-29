@@ -98,7 +98,6 @@ in
     flake = "/home/ladyhayya/.nix-desktop"; # sets NH_OS_FLAKE variable for you
   };
 
-
   # Set your time zone.
   time.timeZone = "America/Fortaleza";
 
@@ -135,9 +134,9 @@ in
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.ladyhayya = {
     isNormalUser = true;
-    description = "Lh";
+    description = "Lady Hayya";
     shell = pkgs.zsh;
-    extraGroups = [ "networkmanager" "wheel" "libvirtd" ];
+    extraGroups = [ "networkmanager" "wheel" "libvirtd" "greeter" ];
     packages = [
     	pkgs.nautilus
 	nitrosense
@@ -256,6 +255,12 @@ in
     configFiles = [
       "/home/ladyhayya/.config/DankMaterialShell/"
     ];
+    # Save the logs to a file
+    logs = {
+     save = true; 
+     path = "/tmp/dms-greeter.log";
+    };
+    quickshell.package = pkgs.quickshell;
   };
 
   # Enables Stylix for a unified theming for (pretty much) all apps.

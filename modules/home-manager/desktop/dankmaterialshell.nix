@@ -10,7 +10,6 @@
    session = {
 	pinnedApps = [
     	"zen-beta"
-	"com.google.Chrome"
     	"org.gnome.Nautilus"
     	"kitty"
     	"steam"
