@@ -91,6 +91,14 @@ in
   # Enables Flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
+  programs.nh = {
+    enable = true;
+    clean.enable = true;
+    clean.extraArgs = "--keep-since 7d --keep 1";
+    flake = "/home/ladyhayya/.nix-desktop"; # sets NH_OS_FLAKE variable for you
+  };
+
+
   # Set your time zone.
   time.timeZone = "America/Fortaleza";
 
@@ -147,6 +155,7 @@ in
     python3
     libglvnd
     nextdns
+    nix-output-monitor
   ];
 
   # Enables the AccountDaemon.
@@ -240,7 +249,7 @@ in
   };
 
   # Enables DankMaterialGreeter as a frontend for GreetD.
-  programs.dankMaterialShell.greeter = {
+  programs.dank-material-shell.greeter = {
     enable = true;
     compositor.name = "niri";
     configHome = "/home/ladyhayya";
