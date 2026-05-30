@@ -8,12 +8,14 @@
 		extensions = with pkgs.nix-vscode-extensions.open-vsx; [ 
 			catppuccin.catppuccin-vsc
 			yandeu.five-server
-			jnoortheen.nix-ide
 			ms-python.python
-		  ];
-		  userSettings = {
+			bbenoist.nix
+		 	pkgs.nix-vscode-extensions.vscode-marketplace.liemlb.nix-flakes
+		];
+		userSettings = {
 			"terminal.integrated.fontFamily" = "MesloLGS NF";
 			"workbench.colorTheme" = "Catppuccin Mocha";
+			"window.titleBarStyle" = "custom";
 		  };
 		};
 	};
