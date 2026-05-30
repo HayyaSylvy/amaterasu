@@ -138,7 +138,6 @@ in
     shell = pkgs.zsh;
     extraGroups = [ "networkmanager" "wheel" "libvirtd" "greeter" ];
     packages = [
-    	pkgs.nautilus
 	nitrosense
     ];
   };
@@ -153,6 +152,7 @@ in
     dmidecode
     python3
     libglvnd
+    nautilus
     nextdns
     nix-output-monitor
   ];
@@ -267,6 +267,8 @@ in
   stylix = {
      enable = true;
      base16Scheme = {
+     	# A Darker and Purple-accented version of my Pastel Cat theme.
+	# I prefered the pastel theme but oh well, so is life :(
 	base00 = "1e1e2e"; # base
 	base01 = "181825"; # mantle
 	base02 = "313244"; # surface0
@@ -286,14 +288,13 @@ in
      };
      # Sets up my cursor theme for all theming engines.
      cursor = {
-        # Same situation as before
 	name = "catppuccin-mocha-mauve-cursors";
 	package = pkgs.catppuccin-cursors.mochaMauve;
 	size = 20;
      };
      icons  = {
 	enable = true;
-	package = pkgs.catppuccin-papirus-folders.override { flavor = "mocha"; accent = "pink"; };
+	package = pkgs.catppuccin-papirus-folders.override { flavor = "mocha"; accent = "mauve"; };
 	dark = "Papirus-Dark";
      };
      # Sets my wallpaper using WPaperD :P
