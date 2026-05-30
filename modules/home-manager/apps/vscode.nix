@@ -16,6 +16,7 @@
 			"terminal.integrated.fontFamily" = "MesloLGS NF";
 			"workbench.colorTheme" = "Catppuccin Mocha";
 			"window.titleBarStyle" = "custom";
+			"git.confirmSync" = "false";
 		  };
 		};
 	};
