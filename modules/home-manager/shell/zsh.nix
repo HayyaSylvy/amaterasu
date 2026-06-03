@@ -9,6 +9,9 @@
       localVariables = { 
         ZSH_DISABLE_COMPFIX = "true"; # Fixes VSCodium wrong shell warning
       };
+      shellAliases = {
+	"sudo nix-collect-garbage -d --cores 16 && sudo nixos-rebuild switch --flake ~/.nix-desktop#amaterasu" = "clean-garbage";
+      };
       # Makes it that .zshrc and other similar files are actually on a writable folder.
       dotDir = "${config.xdg.configHome}/zsh"; 
       oh-my-zsh = {

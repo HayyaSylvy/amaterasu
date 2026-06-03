@@ -149,10 +149,10 @@
              matches = [{app-id = "floorp$"; title="^Picture-in-Picture$";}];
              open-floating = true;
            }
-           {
-             matches = [{app-id="^steam$";}];
-             open-floating = true;
-           }
+           #{
+           #  matches = [{app-id="^steam$";}];
+           #  open-floating = true;
+           #}
 	   {
 	     matches = [{app-id="^xdg-desktop-portal$";}];
 	     open-floating = true;
@@ -318,6 +318,7 @@
 	allow-when-locked = true; 
 	action.spawn = ["dms" "ipc" "call" "brightness" "decrement" "5"];
         };
+	"XF86Presentation".action.spawn = [ "codium" ];
       };
   };
 

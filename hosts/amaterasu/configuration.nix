@@ -93,8 +93,6 @@ in
 
   programs.nh = {
     enable = true;
-    clean.enable = true;
-    clean.extraArgs = "--keep-since 7d --keep 1";
     flake = "/home/ladyhayya/.nix-desktop"; # sets NH_OS_FLAKE variable for you
   };
 
@@ -138,7 +136,7 @@ in
     shell = pkgs.zsh;
     extraGroups = [ "networkmanager" "wheel" "libvirtd" "greeter" ];
     packages = [
-	nitrosense
+	  nitrosense
     ];
   };
 
@@ -153,6 +151,7 @@ in
     python3
     libglvnd
     nautilus
+    p7zip
     nextdns
     nix-output-monitor
   ];
@@ -268,34 +267,34 @@ in
      enable = true;
      base16Scheme = {
      	# A Darker and Purple-accented version of my Pastel Cat theme.
-	# I prefered the pastel theme but oh well, so is life :(
-	base00 = "1e1e2e"; # base
-	base01 = "181825"; # mantle
-	base02 = "313244"; # surface0
-	base03 = "45475a"; # surface1
-	base04 = "585b70"; # surface2
-	base05 = "cdd6f4"; # text
-	base06 = "f5e0dc"; # rosewater
-	base07 = "b4befe"; # lavender
-	base08 = "f38ba8"; # red
-	base09 = "fab387"; # peach
-	base0A = "f9e2af"; # yellow
-	base0B = "a6e3a1"; # green
-	base0C = "94e2d5"; # teal
-	base0E = "89b4fa"; # blue
-	base0D = "cba6f7"; # mauve
-	base0F = "f2cdcd"; # flamingo
+	    # I prefered the pastel theme but oh well, so is life :(
+	    base00 = "1e1e2e"; # base
+	    base01 = "181825"; # mantle
+	    base02 = "313244"; # surface0
+    	base03 = "45475a"; # surface1
+    	base04 = "585b70"; # surface2
+	    base05 = "cdd6f4"; # text
+	    base06 = "f5e0dc"; # rosewater
+	    base07 = "b4befe"; # lavender
+	    base08 = "f38ba8"; # red
+	    base09 = "fab387"; # peach
+	    base0A = "f9e2af"; # yellow
+	    base0B = "a6e3a1"; # green
+	    base0C = "94e2d5"; # teal
+	    base0E = "89b4fa"; # blue
+	    base0D = "cba6f7"; # mauve
+	    base0F = "f2cdcd"; # flamingo
      };
      # Sets up my cursor theme for all theming engines.
      cursor = {
-	name = "catppuccin-mocha-mauve-cursors";
-	package = pkgs.catppuccin-cursors.mochaMauve;
-	size = 20;
+	    name = "catppuccin-mocha-mauve-cursors";
+	    package = pkgs.catppuccin-cursors.mochaMauve;
+	    size = 20;
      };
      icons  = {
-	enable = true;
-	package = pkgs.catppuccin-papirus-folders.override { flavor = "mocha"; accent = "mauve"; };
-	dark = "Papirus-Dark";
+	    enable = true;
+	    package = pkgs.catppuccin-papirus-folders.override { flavor = "mocha"; accent = "mauve"; };
+	    dark = "Papirus-Dark";
      };
      # Sets my wallpaper using WPaperD :P
      image = ./../../modules/home-manager/assets/cathy.jpg;

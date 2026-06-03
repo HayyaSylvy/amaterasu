@@ -6,7 +6,7 @@
 		package = pkgs.vscodium;
 		profiles."Akari" = {
 		extensions = with pkgs.nix-vscode-extensions.open-vsx; [ 
-			catppuccin.catppuccin-vsc
+			#catppuccin.catppuccin-vsc
 			yandeu.five-server
 			ms-python.python
 			bbenoist.nix
@@ -14,7 +14,7 @@
 		];
 		userSettings = {
 			"terminal.integrated.fontFamily" = "MesloLGS NF";
-			"workbench.colorTheme" = "Catppuccin Mocha";
+			#"workbench.colorTheme" = "Catppuccin Mocha";
 			"window.titleBarStyle" = "custom";
 			"git.confirmSync" = "false";
 		  };
@@ -22,7 +22,7 @@
 	};
 
 	#
-	stylix.targets.vscode = {
+	stylix.targets.vscodium = {
 		profileNames = [ "Akari" ];
 		enable = true;
 	};
