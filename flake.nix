@@ -6,7 +6,6 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
-    xremap-flake.url = "github:xremap/nix-flake";
     stylix = { 
         url = "github:nix-community/stylix";
         inputs.nixpkgs.follows = "nixpkgs";
@@ -60,13 +59,12 @@
           stylix.nixosModules.stylix
           inputs.jovian.nixosModules.jovian
           inputs.niri.nixosModules.niri
-	        inputs.xremap-flake.nixosModules.default
-	        inputs.dms-plugin-registry.modules.default
+	  #inputs.dms-plugin-registry.modules.default
 	        inputs.dankMaterialShell.nixosModules.greeter
 	        # Imports other system-related modules
-          ./modules/nixos/apps/flatpak.nix
+          #./modules/nixos/apps/flatpak.nix
 	        ./modules/nixos/apps/steam.nix
-		./modules/nixos/apps/xremap.nix
+		#./modules/nixos/apps/xremap.nix
 	        ./modules/nixos/hardware/nvidia.nix
 	        ./modules/nixos/apps/syncthing.nix
           # Setups Home Manager for "Lady Hayya" (AKA: the penname the girl who wrote all this code :3)
@@ -90,7 +88,7 @@
 		              ./modules/home-manager/apps/spotify.nix # Actually Spiceitfy :P
 		              ./modules/home-manager/apps/discord.nix # Actually Nixcord, which configures Vesktop not the Official Discord app :P
 		              ./modules/home-manager/apps/vscode.nix
-		              ./modules/home-manager/apps/steam.nix # This module is unstable, so I may disable it in near future.
+		              #./modules/home-manager/apps/steam.nix # This module is unstable, so I may disable it in near future.
 		              ./modules/home-manager/apps/kdeconnect.nix
 		              ./modules/home-manager/apps/lutris.nix
 		              ./modules/home-manager/apps/mangohud.nix

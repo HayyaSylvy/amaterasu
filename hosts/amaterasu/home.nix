@@ -44,6 +44,7 @@
      prismlauncher # Best Minecraft Launcher EVER (QT)
      kdePackages.filelight
      winetricks
+     heroic
      p7zip
      kdePackages.filelight
      celluloid # GNOME MPV Player

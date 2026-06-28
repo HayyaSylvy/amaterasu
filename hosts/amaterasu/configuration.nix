@@ -19,6 +19,9 @@ in
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  virtualisation.waydroid.enable = true;
+  networking.nftables.enable = true;
+
   # Enables NixLD to be able to run (some) regular binaries.
   programs.nix-ld.enable = true;
 
@@ -41,6 +44,7 @@ in
       "udev.log_priority=3"
       "acpi_backlight=native"
       "acpi_osi"
+      "sys.use_memfd=true"
       #"rd.systemd.show_status=auto"
       "nvidia-drm.fbdev=1" 
   ];
@@ -137,6 +141,7 @@ in
     extraGroups = [ "networkmanager" "wheel" "libvirtd" "greeter" ];
     packages = [
 	  nitrosense
+	  pkgs.wl-clipboard
     ];
   };
 
@@ -152,7 +157,7 @@ in
     libglvnd
     nautilus
     p7zip
-    nextdns
+    #nextdns
     nix-output-monitor
   ];
 
@@ -232,19 +237,19 @@ in
   ];
 
   # Enables NextDNS and configures the profile.
-  services.nextdns = {
-    enable = true;
-    arguments = [ "-profile" "4a18bf" "-cache-size" "10MB" ];
-  };
+  #services.nextdns = {
+  #  enable = true;
+  #  arguments = [ "-profile" "4a18bf" "-cache-size" "10MB" ];
+  #};
 
   # Setups a script to automate NextDNS activation.
-  systemd.services.nextdns-activate = {
-    script = ''
-      /run/current-system/sw/bin/nextdns activate
-    '';
-    after = [ "nextdns.service" ];
-    wantedBy = [ "multi-user.target" ];
-  };
+  #systemd.services.nextdns-activate = {
+   # script = ''
+    #  /run/current-system/sw/bin/nextdns activate
+    #'';
+    #after = [ "nextdns.service" ];
+    #wantedBy = [ "multi-user.target" ];
+  #};
 
   # Enables DankMaterialGreeter as a frontend for GreetD.
   programs.dank-material-shell.greeter = {
