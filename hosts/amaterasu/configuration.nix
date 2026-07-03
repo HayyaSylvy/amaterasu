@@ -22,6 +22,13 @@ in
   virtualisation.waydroid.enable = true;
   networking.nftables.enable = true;
 
+  networking.nameservers = [
+    "1.1.1.1"
+    "1.0.0.1"
+  ];
+
+  services.resolved.enable = false;
+
   # Enables NixLD to be able to run (some) regular binaries.
   programs.nix-ld.enable = true;
 
@@ -209,6 +216,9 @@ in
   nixpkgs.overlays = [ 
   	inputs.niri.overlays.niri 
   	inputs.nix-vscode-extensions.overlays.default
+	(final: _prev: {
+      	pnpm_10_29_2 = final.pnpm_10;
+    	})
 	(final: prev: {
         vesktop = prev.vesktop.overrideAttrs (old: {
           preBuild = ''
@@ -309,9 +319,7 @@ in
 
   # Disables the firewall altogether.
   networking.firewall = {
-        enable = true;
-  	allowedTCPPortRanges = [ { from = 1714; to = 1764; } ];
-  	allowedUDPPortRanges = [ { from = 1714; to = 1764; } ]; 
+        enable = false;
   };
 
   # Replaces the (broken) Niri-Flake polkit with a functional Gnome Polkit.
