@@ -36,13 +36,13 @@
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     nixcord.url = "github:kaylorben/nixcord";
-    #jovian = {
-     # url = "github:HayyaSylvy/Jovian-NixOS";
-      #inputs.nixpkgs.follows = "nixpkgs";
-    #};
+    jovian = {
+      url = "github:HayyaSylvy/Jovian-NixOS";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, nix-flatpak, stylix, nixvim, dankMaterialShell, niri, spicetify-nix, nixcord, nix-vscode-extensions, ... }: 
+  outputs = inputs@{ self, nixpkgs, home-manager, nix-flatpak, stylix, nixvim, dankMaterialShell, niri, spicetify-nix, nixcord, jovian, nix-vscode-extensions, ... }: 
 {
     
     nixosConfigurations = {
@@ -57,14 +57,13 @@
           home-manager.nixosModules.home-manager
           nix-flatpak.nixosModules.nix-flatpak
           stylix.nixosModules.stylix
-          #inputs.jovian.nixosModules.jovian
+          inputs.jovian.nixosModules.jovian
           inputs.niri.nixosModules.niri
 	  #inputs.dms-plugin-registry.modules.default
 	        inputs.dankMaterialShell.nixosModules.greeter
 	        # Imports other system-related modules
-          #./modules/nixos/apps/flatpak.nix
+                ./modules/nixos/apps/flatpak.nix
 	        ./modules/nixos/apps/steam.nix
-		#./modules/nixos/apps/xremap.nix
 	        ./modules/nixos/hardware/nvidia.nix
 	        ./modules/nixos/apps/syncthing.nix
           # Setups Home Manager for "Lady Hayya" (AKA: the penname the girl who wrote all this code :3)

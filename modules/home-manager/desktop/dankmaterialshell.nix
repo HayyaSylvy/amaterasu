@@ -96,7 +96,7 @@
    niri = {
       enableSpawn = true;      # Auto-start DMS with niri
       includes = {
-      enable = true;
+      enable = false;
       override = false;
       };
    };
