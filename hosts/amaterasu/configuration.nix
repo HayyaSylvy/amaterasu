@@ -162,6 +162,7 @@ in
     libglvnd
     nautilus
     p7zip
+    xdg-utils
     #nextdns
     nix-output-monitor
   ];
