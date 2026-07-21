@@ -42,15 +42,14 @@
      # Random apps I couldn't fit in a specific module :P
      qbittorrent # Torrent Client (QT)
      prismlauncher # Best Minecraft Launcher EVER (QT)
-     kdePackages.filelight
+     #kdePackages.filelight
      winetricks
      heroic
      p7zip
-     kdePackages.filelight
      celluloid # GNOME MPV Player
-     image-roll # GNOME Image Viewer
-     evince # GNOME Document Viewer
-     snapshot # GNOME Camera
+     #image-roll # GNOME Image Viewer
+     #evince # GNOME Document Viewer
+     # snapshot # GNOME Camera
      foliate # GNOME E-Book Reader
      # Scripts in Python
      (pkgs.writeScriptBin "rgb-control"
@@ -83,10 +82,10 @@
 
   # Enables two stylix modules and removes false alarm of mismatching versions (Pretty sure these are all useless, TODO: Remove this)
   stylix.targets.gtk.flatpakSupport.enable = true;
-  #stylix.targets.qt = { 
-  #	enable = true;
-  #	platform = "qtct";
-  #};
+  stylix.targets.qt = { 
+  	enable = true;
+  	platform = "qtct";
+  };
   stylix.enableReleaseChecks = false;
 
   # Enables the Gruvbox Plus icon theme for GTK apps.
