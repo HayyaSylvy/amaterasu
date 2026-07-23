@@ -15,12 +15,16 @@
         #inputs.nixpkgs.follows = "nixpkgs";
     };
     dankMaterialShell = {
-      url = "github:AvengeMedia/DankMaterialShell";
+      url = "github:AvengeMedia/DankMaterialShell/stable";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     dms-plugin-registry = {
     	url = "github:AvengeMedia/dms-plugin-registry";
         inputs.nixpkgs.follows = "nixpkgs";
+    };
+    dank-greeter = {
+      url = "github:AvengeMedia/dank-greeter";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     niri = {
       url = "github:sodiboo/niri-flake";
@@ -47,8 +51,8 @@
     
     nixosConfigurations = {
       amaterasu = nixpkgs.lib.nixosSystem {
-	   system = "x86_64-linux";
-	   specialArgs = {inherit inputs;};
+	    system = "x86_64-linux";
+	    specialArgs = {inherit inputs;};
         modules = [
           # Imports essential system-related configurations
           ./hosts/amaterasu/configuration.nix
@@ -59,49 +63,48 @@
           stylix.nixosModules.stylix
           inputs.jovian.nixosModules.jovian
           inputs.niri.nixosModules.niri
-	 #inputs.dms-plugin-registry.modules.default
-	       inputs.dankMaterialShell.nixosModules.greeter
-	       # Imports other system-related modules
+	  inputs.dank-greeter.nixosModules.default
+	        # Imports other system-related modules
                 ./modules/nixos/apps/flatpak.nix
-	       ./modules/nixos/apps/steam.nix
-	       ./modules/nixos/hardware/nvidia.nix
-	       ./modules/nixos/apps/syncthing.nix
+	        ./modules/nixos/apps/steam.nix
+	        ./modules/nixos/hardware/nvidia.nix
+	        ./modules/nixos/apps/syncthing.nix
           # Setups Home Manager for "Lady Hayya" (AKA: the penname the girl who wrote all this code :3)
           {
             home-manager = { 
                useGlobalPkgs = true;
                useUserPackages = true;
-	            extraSpecialArgs = { inherit inputs; };
+	             extraSpecialArgs = { inherit inputs; };
                users.ladyhayya = { 
                   imports = [
-		             # Imports the Home.nix file. (AKA: the most essential Home Manager file :P)
+		              # Imports the Home.nix file. (AKA: the most essential Home Manager file :P)
                   ./hosts/amaterasu/home.nix
-		             # Imports the required configurations for Niri (my Tiling Compositor of choice) and DankMaterialShell (the Shell on top of Niri)
-		             ./modules/home-manager/desktop/niri.nix
-		             ./modules/home-manager/desktop/dankmaterialshell.nix
-		             # Imports some configurations for apps I declare in Home Manager
-		             ./modules/home-manager/apps/emulation.nix
-		             ./modules/home-manager/apps/distrobox.nix
-		             ./modules/home-manager/apps/zenbrowser.nix
-		             ./modules/home-manager/apps/obsidian.nix
-		             ./modules/home-manager/apps/spotify.nix # Actually Spiceitfy :P
-		             ./modules/home-manager/apps/discord.nix # Actually Nixcord, which configures Vesktop not the Official Discord app :P
-		             ./modules/home-manager/apps/vscode.nix
-		             #./modules/home-manager/apps/steam.nix # This module is unstable, so I may disable it in near future.
-		             ./modules/home-manager/apps/kdeconnect.nix
-		             ./modules/home-manager/apps/lutris.nix
-		             ./modules/home-manager/apps/mangohud.nix
-		             ./modules/home-manager/apps/kitty.nix # :3
-		             ./modules/home-manager/apps/neovim.nix # should be Nixvim instead, idk work the same for me :P
-		             # Imports the configuration of my shell and some TUI utilities.
-		             ./modules/home-manager/shell/zsh.nix
-		             ./modules/home-manager/shell/git.nix
-		             # Imports the module that actually make some of the ones listed above work. 
-		             # Thanks for the authors, these are incredibly useful :D
+		              # Imports the required configurations for Niri (my Tiling Compositor of choice) and DankMaterialShell (the Shell on top of Niri)
+		              ./modules/home-manager/desktop/niri.nix
+		              ./modules/home-manager/desktop/dankmaterialshell.nix
+		              # Imports some configurations for apps I declare in Home Manager
+		              ./modules/home-manager/apps/emulation.nix
+		              ./modules/home-manager/apps/distrobox.nix
+		              ./modules/home-manager/apps/zenbrowser.nix
+		              ./modules/home-manager/apps/obsidian.nix
+		              ./modules/home-manager/apps/spotify.nix # Actually Spiceitfy :P
+		              ./modules/home-manager/apps/discord.nix # Actually Nixcord, which configures Vesktop not the Official Discord app :P
+		              ./modules/home-manager/apps/vscode.nix
+		              #./modules/home-manager/apps/steam.nix # This module is unstable, so I may disable it in near future.
+		              ./modules/home-manager/apps/kdeconnect.nix
+		              ./modules/home-manager/apps/lutris.nix
+		              ./modules/home-manager/apps/mangohud.nix
+		              ./modules/home-manager/apps/kitty.nix # :3
+		              ./modules/home-manager/apps/neovim.nix # should be Nixvim instead, idk work the same for me :P
+		              # Imports the configuration of my shell and some TUI utilities.
+		              ./modules/home-manager/shell/zsh.nix
+		              ./modules/home-manager/shell/git.nix
+		              # Imports the module that actually make some of the ones listed above work. 
+		              # Thanks for the authors, these are incredibly useful :D
                   nixvim.homeModules.nixvim
-		             nixcord.homeModules.nixcord
-		             spicetify-nix.homeManagerModules.default		
-		             inputs.zen-browser.homeModules.beta
+		              nixcord.homeModules.nixcord
+		              spicetify-nix.homeManagerModules.default		  
+		              inputs.zen-browser.homeModules.beta
                   inputs.dankMaterialShell.homeModules.dank-material-shell
                   inputs.dankMaterialShell.homeModules.niri
                   ];

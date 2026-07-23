@@ -56,7 +56,7 @@
      (pkgs.writeScriptBin "rgb-control"
      ("#!${mypython}/bin/python3\n" + (builtins.readFile ./../../pkgs/acer-rgb-control.py)))
   ];
-
+  
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {
@@ -86,6 +86,13 @@
   #stylix.targets.qt = { 
   #	enable = true;
   #	platform = "qtct";
+  #};
+  stylix.enableReleaseChecks = false;
+
+  # Enables the Gruvbox Plus icon theme for GTK apps.
+  #gtk.iconTheme = {
+  #    name = "Gruvbox-Plus-Dark";
+  #    package = pkgs.gruvbox-plus-icons;
   #};
 
   # Enables the Gruvbox Plus icon theme for QT apps and DankMaterialShell.
