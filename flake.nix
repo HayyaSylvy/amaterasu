@@ -90,7 +90,7 @@
 		              ./modules/home-manager/apps/spotify.nix # Actually Spiceitfy :P
 		              ./modules/home-manager/apps/discord.nix # Actually Nixcord, which configures Vesktop not the Official Discord app :P
 		              ./modules/home-manager/apps/vscode.nix
-		              #./modules/home-manager/apps/steam.nix # This module is unstable, so I may disable it in near future.
+		              ./modules/home-manager/apps/steam.nix # This module is unstable, so I may disable it in near future.
 		              ./modules/home-manager/apps/kdeconnect.nix
 		              ./modules/home-manager/apps/lutris.nix
 		              ./modules/home-manager/apps/mangohud.nix

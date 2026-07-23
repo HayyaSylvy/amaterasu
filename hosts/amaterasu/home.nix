@@ -22,7 +22,6 @@
     "inode/directory" = ["nautilus.desktop"];
   };
 
-
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
   # introduces backwards incompatible changes.
@@ -45,6 +44,7 @@
      kdePackages.filelight
      winetricks
      heroic
+     hydralauncher
      p7zip
      kdePackages.filelight
      celluloid # GNOME MPV Player
@@ -52,6 +52,8 @@
      evince # GNOME Document Viewer
      snapshot # GNOME Camera
      foliate # GNOME E-Book Reader
+     sushi # GNOME Nautilus Previewer
+     gnome-text-editor # GNOME Text Editor, duh :P
      # Scripts in Python
      (pkgs.writeScriptBin "rgb-control"
      ("#!${mypython}/bin/python3\n" + (builtins.readFile ./../../pkgs/acer-rgb-control.py)))
