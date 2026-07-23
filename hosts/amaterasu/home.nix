@@ -42,20 +42,21 @@
      # Random apps I couldn't fit in a specific module :P
      qbittorrent # Torrent Client (QT)
      prismlauncher # Best Minecraft Launcher EVER (QT)
-     #kdePackages.filelight
+     kdePackages.filelight
      winetricks
      heroic
      p7zip
+     kdePackages.filelight
      celluloid # GNOME MPV Player
-     #image-roll # GNOME Image Viewer
-     #evince # GNOME Document Viewer
-     # snapshot # GNOME Camera
+     image-roll # GNOME Image Viewer
+     evince # GNOME Document Viewer
+     snapshot # GNOME Camera
      foliate # GNOME E-Book Reader
      # Scripts in Python
      (pkgs.writeScriptBin "rgb-control"
      ("#!${mypython}/bin/python3\n" + (builtins.readFile ./../../pkgs/acer-rgb-control.py)))
   ];
-  
+
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {
@@ -82,16 +83,9 @@
 
   # Enables two stylix modules and removes false alarm of mismatching versions (Pretty sure these are all useless, TODO: Remove this)
   stylix.targets.gtk.flatpakSupport.enable = true;
-  stylix.targets.qt = { 
-  	enable = true;
-  	platform = "qtct";
-  };
-  stylix.enableReleaseChecks = false;
-
-  # Enables the Gruvbox Plus icon theme for GTK apps.
-  #gtk.iconTheme = {
-  #    name = "Gruvbox-Plus-Dark";
-  #    package = pkgs.gruvbox-plus-icons;
+  #stylix.targets.qt = { 
+  #	enable = true;
+  #	platform = "qtct";
   #};
 
   # Enables the Gruvbox Plus icon theme for QT apps and DankMaterialShell.

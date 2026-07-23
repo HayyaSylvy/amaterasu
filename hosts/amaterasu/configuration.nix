@@ -32,20 +32,29 @@ in
 
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
+
+  # Enables Niri (Unstable) + DankMaterialGreeter
+  programs.niri.enable = true;
+  programs.niri.package = pkgs.niri-unstable;
+  programs.dank-material-shell.greeter = {
+    enable = true;
+    compositor.name = "niri";
+    configHome = "/home/ladyhayya";
+    configFiles = [
+      "/home/ladyhayya/.config/DankMaterialShell/"
+    ];
+    # Save the logs to a file
+    logs = {
+     save = true; 
+     path = "/tmp/dms-greeter.log";
+    };
+    quickshell.package = pkgs.quickshell;
+  };
   
   # Enables my Acer RGB Keyboard to work properly.
   boot.extraModulePackages = [ acermodule ];
   boot.kernelModules = [ "facer" "wmi" "sparse-keymap" "video"];  
   
- # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
-  environment.gnome.excludePackages = with pkgs; [
-    epiphany
-    gnome-software
-  ];
-
-
   # Enables Plymouth, and removes most boot messages.
   boot.plymouth.enable = true;
   boot.initrd.systemd.enable = true;
@@ -175,6 +184,8 @@ in
     #nextdns
     nix-output-monitor
   ];
+
+  programs.dconf.enable = true;
 
   # Enables the AccountDaemon.
   # Minor stuff... but it does allows me to declare my Profile Picture :P.
