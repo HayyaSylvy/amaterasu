@@ -157,10 +157,13 @@ in
   # De-facto, this is a list of packages that 
   # A: Don't need a module or B: Are dependencies else something breaks wittout them. 
   environment.systemPackages = with pkgs; [
+    (import inputs.creamlinux-installer { inherit pkgs; })
     dmidecode
     python3
     libglvnd
     nautilus
+    file-roller
+    unrar
     p7zip
     xdg-utils
     #nextdns

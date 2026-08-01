@@ -45,7 +45,6 @@
      winetricks
      heroic
      hydralauncher
-     p7zip
      kdePackages.filelight
      celluloid # GNOME MPV Player
      image-roll # GNOME Image Viewer

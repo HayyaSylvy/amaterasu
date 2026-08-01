@@ -30,6 +30,12 @@
       url = "github:sodiboo/niri-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    creamlinux-installer = {
+      type = "github";
+      owner = "Novattz";
+      repo = "creamlinux-installer";
+      flake = false;
+    };
     zen-browser = {
     url = "github:0xc000022070/zen-browser-flake";
      inputs = {
@@ -46,7 +52,7 @@
     };
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, nix-flatpak, stylix, nixvim, dankMaterialShell, niri, spicetify-nix, nixcord, jovian, nix-vscode-extensions, ... }: 
+  outputs = inputs@{ self, nixpkgs, home-manager, nix-flatpak, stylix, nixvim, dankMaterialShell, niri, spicetify-nix, nixcord, jovian, nix-vscode-extensions, creamlinux-installer, ... }: 
 {
     
     nixosConfigurations = {
