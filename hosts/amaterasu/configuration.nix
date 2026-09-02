@@ -20,9 +20,9 @@ in
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  nixpkgs.config.permittedInsecurePackages = [
-                "pnpm-9.15.9"
-  ];
+  #nixpkgs.config.permittedInsecurePackages = [
+   #             "pnpm-9.15.9"
+  #];
   
   # Enables Waydroid Support.
   virtualisation.waydroid.enable = true;
