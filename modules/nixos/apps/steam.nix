@@ -26,17 +26,6 @@
     		capSysAdmin = true; # only needed for Wayland -- omit this when using with Xorg
     		openFirewall = true;
   	};
-	jovian.steam.enable = true;
-	jovian.decky-loader = {
-		enable = true;
-		user = "ladyhayya";
-		plugins = with pkgs.decky-plugins; [
-		protondb_badges
-		css_loader
-		steamgriddb
-		decky_terminal
-		];
-	};
 	environment.systemPackages = with pkgs; [ 
 		gamescope
 		gamescope-wsi

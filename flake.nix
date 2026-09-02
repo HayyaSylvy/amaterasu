@@ -46,13 +46,9 @@
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     nixcord.url = "github:kaylorben/nixcord";
-    jovian = {
-      url = "github:HayyaSylvy/Jovian-NixOS";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, nix-flatpak, stylix, nixvim, dankMaterialShell, niri, spicetify-nix, nixcord, jovian, nix-vscode-extensions, creamlinux-installer, ... }: 
+  outputs = inputs@{ self, nixpkgs, home-manager, nix-flatpak, stylix, nixvim, dankMaterialShell, niri, spicetify-nix, nixcord, nix-vscode-extensions, creamlinux-installer, ... }: 
 {
     
     nixosConfigurations = {
@@ -67,7 +63,6 @@
           home-manager.nixosModules.home-manager
           nix-flatpak.nixosModules.nix-flatpak
           stylix.nixosModules.stylix
-          inputs.jovian.nixosModules.jovian
           inputs.niri.nixosModules.niri
 	  inputs.dank-greeter.nixosModules.default
 	        # Imports other system-related modules
