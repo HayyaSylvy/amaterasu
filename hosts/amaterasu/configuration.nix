@@ -9,6 +9,7 @@ acermodule = config.boot.kernelPackages.callPackage ./../../pkgs/acer-rgb.nix {}
 nitrosense = pkgs.callPackage ./../../pkgs/nitrosense.nix {inherit pkgs; };
 in
 
+
 {
   imports =
     [ # Include the results of the hardware scan.
@@ -29,6 +30,7 @@ in
 
   # Enables NixLD to be able to run (some) regular binaries.
   programs.nix-ld.enable = true;
+  hardware.graphics.enable32Bit = true;
 
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;

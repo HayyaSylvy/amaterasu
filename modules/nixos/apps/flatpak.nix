@@ -6,7 +6,10 @@
    services.flatpak = {
         enable = true;
         update.onActivation = true;
-        remotes = [ { name = "flathub"; location = "https://flathub.org/repo/flathub.flatpakrepo"; } ];
+        remotes = [ 
+	{ name = "flathub"; location = "https://flathub.org/repo/flathub.flatpakrepo"; }
+	{ name = "amethyst"; location = "https://chrisdkn.github.io/Amethyst-Mod-Manager/amethyst.flatpakref"; }
+	];
         packages = [ 
 	#"moe.launcher.an-anime-game-launcher"
 	"org.onlyoffice.desktopeditors"
