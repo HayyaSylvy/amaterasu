@@ -9,7 +9,6 @@ acermodule = config.boot.kernelPackages.callPackage ./../../pkgs/acer-rgb.nix {}
 nitrosense = pkgs.callPackage ./../../pkgs/nitrosense.nix {inherit pkgs; };
 in
 
-
 {
   imports =
     [ # Include the results of the hardware scan.
@@ -216,11 +215,11 @@ in
   nixpkgs.overlays = [ 
   	inputs.niri.overlays.niri 
   	inputs.nix-vscode-extensions.overlays.default
-    	( final: prev: {
-      		openldap = prev.openldap.overrideAttrs {
-        	doCheck = !prev.stdenv.hostPlatform.isi686;
-      	};
-    	})
+    	#( final: prev: {
+      	#	openldap = prev.openldap.overrideAttrs {
+        #	doCheck = !prev.stdenv.hostPlatform.isi686;
+      	#};
+    	#})
   ];
 
   # Enables NextDNS and configures the profile.
