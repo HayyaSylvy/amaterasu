@@ -6,7 +6,6 @@
 
   programs.dank-material-shell = {
    enable = true;
-   dgop.package = pkgs.dgop;
    session = {
 	pinnedApps = [
     	"zen-beta"
