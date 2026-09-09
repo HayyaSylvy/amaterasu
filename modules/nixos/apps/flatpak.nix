@@ -13,6 +13,8 @@
         packages = [ 
 	#"moe.launcher.an-anime-game-launcher"
 	"org.onlyoffice.desktopeditors"
+	"com.usebottles.bottles"
+	"org.gimp.GIMP"
 	#"gg.minion.Minion"
 	];
    };
