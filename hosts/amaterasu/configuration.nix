@@ -19,6 +19,11 @@ in
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  swapDevices = [{
+  	device = "/var/lib/swapfile";
+  	size = 16*1024; # 16 GiB
+  }];
+
   # Enables Waydroid Support.
   virtualisation.waydroid.enable = true;
   networking.nftables.enable = true;
@@ -26,6 +31,12 @@ in
   # Enables NixLD to be able to run (some) regular binaries.
   programs.nix-ld.enable = true;
   hardware.graphics.enable32Bit = true;
+
+  # Enables Appimage support.
+  programs.appimage = {
+  	enable = true;
+  	binfmt = true;
+  };
 
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
