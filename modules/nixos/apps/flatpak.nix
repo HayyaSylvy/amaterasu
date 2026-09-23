@@ -2,20 +2,18 @@
 {
    # Legacy module I used to install Flatpaks
    # Most of these were just moved to Nixpkgs versions for convienency.
-   # It still works, I just don't have much of a reason to use it.
    services.flatpak = {
         enable = true;
         update.onActivation = true;
         remotes = [ 
 	{ name = "flathub"; location = "https://flathub.org/repo/flathub.flatpakrepo"; }
-	{ name = "amethyst"; location = "https://chrisdkn.github.io/Amethyst-Mod-Manager/amethyst.flatpakref"; }
+	#{ name = "amethyst"; location = "https://chrisdkn.github.io/Amethyst-Mod-Manager/amethyst.flatpakref"; }
 	];
         packages = [ 
-	#"moe.launcher.an-anime-game-launcher"
 	"org.onlyoffice.desktopeditors"
 	"com.usebottles.bottles"
 	"org.gimp.GIMP"
-	#"gg.minion.Minion"
+	#{ appId = "io.github.Amethyst.ModManager"; origin = "amethyst"; }
 	];
    };
 
