@@ -17,6 +17,17 @@
       enable = true;
       createDirectories = true;
   };
+  
+  # Default SOPS-nix setup for encryptions.
+  # DO NOT try to hack it. 
+  # Or try, you aren't getting much anyway you silly hacker :P
+  #sops.defaultSopsFile = ./../../secrets/secrets.yaml;
+  #sops.defaultSopsFormat = "yaml";
+  #sops.age.keyFile = "/home/ladyhayya/.config/sops/age/keys.txt"; 
+  #sops.secrets = {
+  #	"services/rclone/aurea" =  { };
+  #	"services/rclone/aurora" = { };
+  #};
 
   xdg.mimeApps.defaultApplications = {
     "inode/directory" = ["nautilus.desktop"];
@@ -44,6 +55,7 @@
      kdePackages.filelight
      winetricks
      heroic
+     rclone
      hydralauncher
      kdePackages.filelight
      celluloid # GNOME MPV Player
@@ -147,7 +159,7 @@
   #
   #  /etc/profiles/per-user/ladyhayya/etc/profile.d/hm-session-vars.sh
   home.sessionVariables = {
-    # EDITOR = "neovim"; 
+    EDITOR = "nvim"; 
   };
 
   # Let Home Manager install and manage itself.

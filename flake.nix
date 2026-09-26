@@ -43,12 +43,16 @@
       home-manager.follows = "home-manager";
      };
     };
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     nixcord.url = "github:kaylorben/nixcord";
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, nix-flatpak, stylix, nixvim, dankMaterialShell, niri, spicetify-nix, nixcord, nix-vscode-extensions, creamlinux-installer, ... }: 
+  outputs = inputs@{ self, nixpkgs, home-manager, nix-flatpak, stylix, nixvim, dankMaterialShell, niri, spicetify-nix, nixcord, nix-vscode-extensions, creamlinux-installer, sops-nix, ... }: 
 {
     
     nixosConfigurations = {
@@ -63,8 +67,9 @@
           home-manager.nixosModules.home-manager
           nix-flatpak.nixosModules.nix-flatpak
           stylix.nixosModules.stylix
+          sops-nix.nixosModules.sops
           inputs.niri.nixosModules.niri
-	  inputs.dank-greeter.nixosModules.default
+	        inputs.dank-greeter.nixosModules.default
 	        # Imports other system-related modules
                 ./modules/nixos/apps/flatpak.nix
 	        ./modules/nixos/apps/steam.nix
@@ -86,6 +91,7 @@
 		              # Imports some configurations for apps I declare in Home Manager
 		              ./modules/home-manager/apps/emulation.nix
 		              ./modules/home-manager/apps/distrobox.nix
+			      ./modules/home-manager/apps/rclone.nix
 		              ./modules/home-manager/apps/zenbrowser.nix
 		              ./modules/home-manager/apps/obsidian.nix
 		              ./modules/home-manager/apps/spotify.nix # Actually Spiceitfy :P
@@ -104,6 +110,7 @@
 		              # Thanks for the authors, these are incredibly useful :D
                   nixvim.homeModules.nixvim
 		              nixcord.homeModules.nixcord
+                  inputs.sops-nix.homeManagerModules.sops
 		              spicetify-nix.homeManagerModules.default		  
 		              inputs.zen-browser.homeModules.beta
                   inputs.dankMaterialShell.homeModules.dank-material-shell

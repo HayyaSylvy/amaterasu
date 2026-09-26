@@ -12,7 +12,9 @@
         packages = [ 
 	"org.onlyoffice.desktopeditors"
 	"com.usebottles.bottles"
+	"io.github.unknownskl.greenlight"
 	"org.gimp.GIMP"
+	"gg.minion.Minion"
 	#{ appId = "io.github.Amethyst.ModManager"; origin = "amethyst"; }
 	];
    };
