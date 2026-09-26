@@ -15,7 +15,7 @@
     	"org.qbittorrent.qBittorrent"
     	"com.github.johnfactotum.Foliate"
     	"spotify"
-    	"obsidian"
+    	"md.obsidian.Obsidian"
     	"codium"
     	".virt-manager-wrapped"
   	];
