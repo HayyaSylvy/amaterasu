@@ -42,6 +42,7 @@
      heroic
      rclone
      hydralauncher
+     protonplus
      kdePackages.filelight
      celluloid # GNOME MPV Player
      image-roll # GNOME Image Viewer

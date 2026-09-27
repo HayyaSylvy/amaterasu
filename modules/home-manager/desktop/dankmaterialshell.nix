@@ -18,7 +18,8 @@
     	"md.obsidian.Obsidian"
     	"codium"
     	".virt-manager-wrapped"
-  	];
+  	"hydralauncher"
+	];
    };
    settings = {
         #currentThemeName = "custom";
