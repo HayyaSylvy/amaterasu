@@ -6,6 +6,7 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
+    #Broken acer-rgb-module.url = "github:HayyaSylvy/acer-rgb-turbo-keyboard-module-rust";
     stylix = { 
         url = "github:nix-community/stylix";
         inputs.nixpkgs.follows = "nixpkgs";
@@ -67,7 +68,8 @@
           home-manager.nixosModules.home-manager
           nix-flatpak.nixosModules.nix-flatpak
           stylix.nixosModules.stylix
-          sops-nix.nixosModules.sops
+	  # inputs.acer-rgb-module.nixosModules.default -Broken
+	  sops-nix.nixosModules.sops
           inputs.niri.nixosModules.niri
 	        inputs.dank-greeter.nixosModules.default
 	        # Imports other system-related modules

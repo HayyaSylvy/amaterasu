@@ -31,6 +31,12 @@
      # Fastfetch as Hyfetch backend, Hyfetch for neofetch but PRIDE :3
      hyfetch
      fastfetch
+     azahar
+     claude-code
+     codex
+     uv
+     rtk
+     gcc
      # Fonts needed for Powerlevel10k
      meslo-lgs-nf
      noto-fonts-cjk-sans

@@ -14,7 +14,7 @@
 	"com.usebottles.bottles"
 	"io.github.unknownskl.greenlight"
 	"org.gimp.GIMP"
-	"gg.minion.Minion"
+	"com.arviceblot.eso-addon-manager"
 	#{ appId = "io.github.Amethyst.ModManager"; origin = "amethyst"; }
 	];
    };

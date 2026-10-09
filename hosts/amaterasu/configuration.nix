@@ -7,6 +7,7 @@
 let 
 acermodule = config.boot.kernelPackages.callPackage ./../../pkgs/acer-rgb.nix {}; 
 nitrosense = pkgs.callPackage ./../../pkgs/nitrosense.nix {inherit pkgs; };
+cpuid-fault-emulation = config.boot.kernelPackages.callPackage ./../../pkgs/hyprvisor.nix {};
 in
 
 {
@@ -43,8 +44,8 @@ in
   boot.kernelPackages = pkgs.linuxPackages_latest;
   
   # Enables my Acer RGB Keyboard to work properly.
-  boot.extraModulePackages = [ acermodule ];
-  boot.kernelModules = [ "facer" "wmi" "sparse-keymap" "video"];  
+  boot.extraModulePackages = [ cpuid-fault-emulation acermodule ];
+  boot.kernelModules = [ "facer" "wmi" "sparse-keymap" "video" "cpuid-fault-emulation" ];  
   
   # Enables Plymouth, and removes most boot messages.
   boot.plymouth.enable = true;
@@ -60,6 +61,7 @@ in
       "acpi_osi"
       "sys.use_memfd=true"
       #"rd.systemd.show_status=auto"
+      "clearcpuid=514"
       "nvidia-drm.fbdev=1" 
   ];
 
@@ -178,6 +180,7 @@ in
   # A: Don't need a module or B: Are dependencies else something breaks wittout them. 
   environment.systemPackages = with pkgs; [
     (import inputs.creamlinux-installer { inherit pkgs; })
+    #inputs.acer-rgb-module.packages.x86_64-linux.default
     dmidecode
     python3
     libglvnd
