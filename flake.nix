@@ -6,6 +6,8 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
+    inputs.disko.url = "github:nix-community/disko/latest";
+    inputs.disko.inputs.nixpkgs.follows = "nixpkgs";
     #Broken acer-rgb-module.url = "github:HayyaSylvy/acer-rgb-turbo-keyboard-module-rust";
     stylix = { 
         url = "github:nix-community/stylix";
@@ -53,7 +55,7 @@
     nixcord.url = "github:kaylorben/nixcord";
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, nix-flatpak, stylix, nixvim, dankMaterialShell, niri, spicetify-nix, nixcord, nix-vscode-extensions, creamlinux-installer, sops-nix, ... }: 
+  outputs = inputs@{ self, nixpkgs, home-manager, nix-flatpak, stylix, nixvim, dankMaterialShell, niri, spicetify-nix, nixcord, nix-vscode-extensions, creamlinux-installer, sops-nix, disko, ... }: 
 {
     
     nixosConfigurations = {
@@ -63,11 +65,13 @@
         modules = [
           # Imports essential system-related configurations
           ./hosts/amaterasu/configuration.nix
+	  ./hosts/amaterasu/disko.nix
           ./hosts/amaterasu/hardware-configuration.nix
           # Imports Nix related-modules
           home-manager.nixosModules.home-manager
           nix-flatpak.nixosModules.nix-flatpak
           stylix.nixosModules.stylix
+	  disko.nixosModules.disko
 	  # inputs.acer-rgb-module.nixosModules.default -Broken
 	  sops-nix.nixosModules.sops
           inputs.niri.nixosModules.niri
