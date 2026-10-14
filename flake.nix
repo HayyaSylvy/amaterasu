@@ -63,6 +63,7 @@
         modules = [
           # Imports essential system-related configurations
           ./hosts/amaterasu/configuration.nix
+	  ./hosts/amaterasu/disko.nix
           ./hosts/amaterasu/hardware-configuration.nix
           # Imports Nix related-modules
           home-manager.nixosModules.home-manager
