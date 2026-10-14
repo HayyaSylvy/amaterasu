@@ -20,12 +20,6 @@ in
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  # Setups a 16GiB swapfile. Useful for perfomance in heavy processes.
-  swapDevices = [{
-  	device = "/var/lib/swapfile";
-  	size = 16*1024; # 16 GiB
-  }];
-
   # Enables Waydroid Support.
   virtualisation.waydroid.enable = true;
   networking.nftables.enable = true;
