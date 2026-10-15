@@ -23,7 +23,7 @@
                 type = "luks";
                 name = "crypted";
                 settings.allowDiscards = true;
-                passwordFile = "/tmp/secret.key";
+                passwordFile = "../../secrets/ladyowar.key";
                 content = {
                   type = "filesystem";
                   format = "ext4";

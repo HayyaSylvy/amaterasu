@@ -6,8 +6,8 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
-    inputs.disko.url = "github:nix-community/disko/latest";
-    inputs.disko.inputs.nixpkgs.follows = "nixpkgs";
+    disko.url = "github:nix-community/disko/latest";
+    disko.inputs.nixpkgs.follows = "nixpkgs";
     #Broken acer-rgb-module.url = "github:HayyaSylvy/acer-rgb-turbo-keyboard-module-rust";
     stylix = { 
         url = "github:nix-community/stylix";
@@ -65,7 +65,7 @@
         modules = [
           # Imports essential system-related configurations
           ./hosts/amaterasu/configuration.nix
-	  ./hosts/amaterasu/disko.nix
+	  #./hosts/amaterasu/disko.nix
           ./hosts/amaterasu/hardware-configuration.nix
           # Imports Nix related-modules
           home-manager.nixosModules.home-manager
