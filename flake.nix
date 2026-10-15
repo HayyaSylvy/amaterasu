@@ -79,7 +79,8 @@
 	        # Imports other system-related modules
                 ./modules/nixos/apps/flatpak.nix
 	        ./modules/nixos/apps/steam.nix
-	        ./modules/nixos/hardware/nvidia.nix
+	        #./modules/nixos/hardware/nvidia.nix # DO NOT LOAD WITH GPU PASSTROUGH
+		./modules/nixos/hardware/gpupasstrough.nix # PICK THIS OR NVIDIA MODULE
 	        ./modules/nixos/apps/syncthing.nix
           # Setups Home Manager for "Lady Hayya" (AKA: the penname the girl who wrote all this code :3)
           {

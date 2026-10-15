@@ -7,6 +7,18 @@
    	"amdgpu"
 	"nvidia" 
    ];
+  boot.kernelParams = [
+      "quiet"
+      "splash"
+      "boot.shell_on_fail"
+      "udev.log_priority=3"
+      "acpi_backlight=native"
+      "acpi_osi"
+      "sys.use_memfd=true"
+      #"rd.systemd.show_status=auto"
+      "clearcpuid=514"
+      "nvidia-drm.fbdev=1" 
+  ];
    hardware.nvidia = {
 	open = false;
 	package = config.boot.kernelPackages.nvidiaPackages.stable;

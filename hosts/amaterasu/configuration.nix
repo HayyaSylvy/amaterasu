@@ -7,7 +7,7 @@
 let 
 acermodule = config.boot.kernelPackages.callPackage ./../../pkgs/acer-rgb.nix {}; 
 nitrosense = pkgs.callPackage ./../../pkgs/nitrosense.nix {inherit pkgs; };
-cpuid-fault-emulation = config.boot.kernelPackages.callPackage ./../../pkgs/hyprvisor.nix {};
+#cpuid-fault-emulation = config.boot.kernelPackages.callPackage ./../../pkgs/hyprvisor.nix {};
 in
 
 {
@@ -38,26 +38,14 @@ in
   boot.kernelPackages = pkgs.linuxPackages_latest;
   
   # Enables my Acer RGB Keyboard to work properly.
-  boot.extraModulePackages = [ cpuid-fault-emulation acermodule ];
-  boot.kernelModules = [ "facer" "wmi" "sparse-keymap" "video" "cpuid-fault-emulation" ];  
+  boot.extraModulePackages = [ acermodule ];
+  boot.kernelModules = [ "facer" "wmi" "sparse-keymap" "video" "vfio_pci" "vfio" "vfio_iommu_type1" ]; #"cpuid-fault-emulation" ];  
   
   # Enables Plymouth, and removes most boot messages.
   boot.plymouth.enable = true;
   boot.initrd.systemd.enable = true;
   boot.consoleLogLevel = 3;
   boot.initrd.verbose = false;
-  boot.kernelParams = [
-      "quiet"
-      "splash"
-      "boot.shell_on_fail"
-      "udev.log_priority=3"
-      "acpi_backlight=native"
-      "acpi_osi"
-      "sys.use_memfd=true"
-      #"rd.systemd.show_status=auto"
-      "clearcpuid=514"
-      "nvidia-drm.fbdev=1" 
-  ];
 
   # Enables XDG Desktop Portals for permission fixes.
   xdg.portal = { 
