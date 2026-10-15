@@ -3,6 +3,7 @@
   # Declarative setup some of Zen's configurations. It still requires Firefox Sync for my extensions and some minor stuff.
   programs.zen-browser = {
        enable = true;
+       setAsDefaultBrowser = true;
        policies = {
          AutofillAddressEnabled = true;
     	 AutofillCreditCardEnabled = false;
@@ -23,6 +24,34 @@
        profiles = {
           "lady-of-war.default" = { # Don't ask me why this called Lady of War, I just think the name is neat for my browser :3
              extensions.force = true;
+	     spacesForce = true;
+	     spaces = {
+		"Personal-stuff :P" = {
+			icon = "🎮";
+			id = "c6de089c-410d-4206-961d-ab11f988d40a";
+			position = 100;
+		};
+		"Studies and Projects" = {
+			icon = "💻";
+			id = "a6de089c-410d-4206-961d-ab11f988d40a";
+			position = 1000;
+		};
+	     };
+	     spaceRouting = {
+		defaultExternalRoute = "a6de089c-410d-4206-961d-ab11f988d40a";
+		routes = {
+			"github" = {
+          			reference = "github.com";
+          			matchType = "contains"; # default
+          			openIn = "a6de089c-410d-4206-961d-ab11f988d40a";
+        		};
+        		"reddit" = {
+          			reference = "reddit.com";
+          			matchType = "equal-to";
+          			openIn = "a6de089c-410d-4206-961d-ab11f988d40a";
+        		};
+		};
+	     };
 	     settings = {
 	     	"zen.view.sidebar-expanded" = true;
 	     	"zen.view.use-single-toolbar" = false;
@@ -37,7 +66,7 @@
 	     # Setups options regarding search engine
 	     search = {
 	        force = true;
-	        default = "ddg"; # RIP Whoogle, wished I could use you :(
+	        default = "ddg";#RIP Whoogle, wish I could have used you :(
 		engines = {
               	    "Nix Packages" = {
                       urls = [{
@@ -70,7 +99,7 @@
 	  };
        };
   };
-  # Configuring Stylix so it targets the right Zen Browser profile and uses the Gnome CSS Theme.
+  # Configuring Stylix so it targets the right Zen Browser profile.
   stylix.targets.zen-browser = {
        profileNames = [ "lady-of-war.default" ];
        enable = true;
