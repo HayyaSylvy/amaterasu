@@ -7,7 +7,7 @@
 let 
 acermodule = config.boot.kernelPackages.callPackage ./../../pkgs/acer-rgb.nix {}; 
 nitrosense = pkgs.callPackage ./../../pkgs/nitrosense.nix {inherit pkgs; };
-#cpuid-fault-emulation = config.boot.kernelPackages.callPackage ./../../pkgs/hyprvisor.nix {};
+cpuid-fault-emulation = config.boot.kernelPackages.callPackage ./../../pkgs/hyprvisor.nix {};
 in
 
 {
@@ -27,6 +27,7 @@ in
   # Enables NixLD to be able to run (some) regular binaries.
   programs.nix-ld.enable = true;
   hardware.graphics.enable32Bit = true;
+  swapDevices = [{ device = "/var/lib/swapfile"; size = 16*1024; }];
 
   # Enables Appimage support.
   programs.appimage = {
@@ -38,8 +39,8 @@ in
   boot.kernelPackages = pkgs.linuxPackages_latest;
   
   # Enables my Acer RGB Keyboard to work properly.
-  boot.extraModulePackages = [ acermodule ];
-  boot.kernelModules = [ "facer" "wmi" "sparse-keymap" "video" "vfio_pci" "vfio" "vfio_iommu_type1" ]; #"cpuid-fault-emulation" ];  
+  boot.extraModulePackages = [ acermodule cpuid-fault-emulation ];
+  boot.kernelModules = [ "facer" "wmi" "sparse-keymap" "video" "cpuid-fault-emulation" ];  
   
   # Enables Plymouth, and removes most boot messages.
   boot.plymouth.enable = true;
@@ -165,6 +166,7 @@ in
     #inputs.acer-rgb-module.packages.x86_64-linux.default
     dmidecode
     python3
+    virtiofsd
     libglvnd
     nautilus
     file-roller
@@ -205,6 +207,9 @@ in
   # Enable QEMU/KVM and Virt-Manager. Disabled right now due to a bug :(
   virtualisation.libvirtd = {
     enable = true;
+    qemu.vhostUserPackages = with pkgs; [
+    virtiofsd
+    ];
     onBoot = "start";
   };
   programs.virt-manager.enable = true;
