@@ -37,6 +37,8 @@
      uv
      rtk
      gcc
+     lsfg-vk
+     lsfg-vk-ui
      # Fonts needed for Powerlevel10k
      meslo-lgs-nf
      noto-fonts-cjk-sans

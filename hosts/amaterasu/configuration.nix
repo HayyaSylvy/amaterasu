@@ -7,6 +7,7 @@
 let 
 acermodule = config.boot.kernelPackages.callPackage ./../../pkgs/acer-rgb.nix {}; 
 nitrosense = pkgs.callPackage ./../../pkgs/nitrosense.nix {inherit pkgs; };
+cheatengine = pkgs.callPackage ./../../pkgs/cheatengine.nix {};
 cpuid-fault-emulation = config.boot.kernelPackages.callPackage ./../../pkgs/hyprvisor.nix {};
 in
 
@@ -44,9 +45,9 @@ in
   
   # Enables Plymouth, and removes most boot messages.
   boot.plymouth.enable = true;
-  boot.initrd.systemd.enable = true;
+  #boot.initrd.systemd.enable = true;
   boot.consoleLogLevel = 3;
-  boot.initrd.verbose = false;
+  #boot.initrd.verbose = false;
 
   # Enables XDG Desktop Portals for permission fixes.
   xdg.portal = { 
