@@ -40,8 +40,8 @@ in
   boot.kernelPackages = pkgs.linuxPackages_latest;
   
   # Enables my Acer RGB Keyboard to work properly.
-  boot.extraModulePackages = [ acermodule cpuid-fault-emulation ];
-  boot.kernelModules = [ "facer" "wmi" "sparse-keymap" "video" "cpuid-fault-emulation" ];  
+  boot.extraModulePackages = [ acermodule ];
+  boot.kernelModules = [ "facer" "wmi" "sparse-keymap" "video"];  
   
   # Enables Plymouth, and removes most boot messages.
   boot.plymouth.enable = true;

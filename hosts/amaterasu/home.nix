@@ -42,6 +42,7 @@
      # Fonts needed for Powerlevel10k
      meslo-lgs-nf
      noto-fonts-cjk-sans
+     umu-launcher
      # Random apps I couldn't fit in a specific module :P
      qbittorrent # Torrent Client (QT)
      prismlauncher # Best Minecraft Launcher EVER (QT)
