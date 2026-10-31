@@ -53,9 +53,18 @@
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     nixcord.url = "github:kaylorben/nixcord";
+    sls-steam = {
+  	url = "github:AceSLS/SLSsteam";
+  	inputs.nixpkgs.follows = "nixpkgs";
+    };
+    accela = {
+      url = "github:ciscosweater/enter-the-wired";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, nix-flatpak, stylix, nixvim, dankMaterialShell, niri, spicetify-nix, nixcord, nix-vscode-extensions, creamlinux-installer, sops-nix, disko, ... }: 
+  outputs = inputs@{ self, nixpkgs, home-manager, nix-flatpak, stylix, nixvim, dankMaterialShell, niri, spicetify-nix, nixcord, nix-vscode-extensions, creamlinux-installer, sops-nix, disko, sls-steam, accela, ... }: 
+
 {
     
     nixosConfigurations = {
@@ -118,7 +127,7 @@
                   nixvim.homeModules.nixvim
 		              nixcord.homeModules.nixcord
                   inputs.sops-nix.homeManagerModules.sops
-		              spicetify-nix.homeManagerModules.default		  
+		              spicetify-nix.homeManagerModules.default	
 		              inputs.zen-browser.homeModules.beta
                   inputs.dankMaterialShell.homeModules.dank-material-shell
                   inputs.dankMaterialShell.homeModules.niri

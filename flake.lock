@@ -1,5 +1,25 @@
 {
   "nodes": {
+    "accela": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1788549955,
+        "narHash": "sha256-teirfWOAEPuI+S0qx4cKJY7hEhT7vaknFJwSem5opww=",
+        "owner": "ciscosweater",
+        "repo": "enter-the-wired",
+        "rev": "3cba346164cbb232da60dffe56f132cbeb13bcf6",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ciscosweater",
+        "repo": "enter-the-wired",
+        "type": "github"
+      }
+    },
     "base16": {
       "inputs": {
         "fromYaml": "fromYaml"
@@ -653,6 +673,7 @@
     },
     "root": {
       "inputs": {
+        "accela": "accela",
         "creamlinux-installer": "creamlinux-installer",
         "dank-greeter": "dank-greeter",
         "dankMaterialShell": "dankMaterialShell",
@@ -665,10 +686,31 @@
         "nixcord": "nixcord",
         "nixpkgs": "nixpkgs_3",
         "nixvim": "nixvim",
+        "sls-steam": "sls-steam",
         "sops-nix": "sops-nix",
         "spicetify-nix": "spicetify-nix",
         "stylix": "stylix",
         "zen-browser": "zen-browser"
+      }
+    },
+    "sls-steam": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1792959440,
+        "narHash": "sha256-tCqeshGKYtT6rxKloO+W6X0BG1/V/6Wdm/53EW9DDas=",
+        "owner": "AceSLS",
+        "repo": "SLSsteam",
+        "rev": "7f59509e51bfdb9f385300bdc85269f84618bf99",
+        "type": "github"
+      },
+      "original": {
+        "owner": "AceSLS",
+        "repo": "SLSsteam",
+        "type": "github"
       }
     },
     "sops-nix": {

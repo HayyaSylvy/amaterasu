@@ -1,8 +1,8 @@
 # Not my code, credits to user reedrw from making a functional (though not 100% stable) module for Steam.
-{ pkgs, lib, config, osConfig, ... }:
+{ pkgs, lib, config, osConfig, inputs, ... }:
 
 lib.optionalAttrs osConfig.programs.steam.enable {
-  home.packages = [ pkgs.adwsteamgtk ];
+  home.packages = with pkgs; [ pkgs.adwsteamgtk inputs.accela.packages.${pkgs.stdenv.hostPlatform.system}.default ];
 
   home.activation = let
     applySteamTheme = pkgs.writeShellScript "applySteamTheme" ''
@@ -104,4 +104,6 @@ lib.optionalAttrs osConfig.programs.steam.enable {
       --adw-shade-a: 0.36;
       }
   '';
+
+
 }

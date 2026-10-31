@@ -1,4 +1,4 @@
-{ pkgs, ...}:
+{ pkgs, inputs, ...}:
 {
 	# Basic setup to enable Steam, Gamemode and Gamescope.
 	programs.gamemode = {
@@ -11,13 +11,22 @@
 	programs.steam = {
 		enable = true;
 		protontricks.enable = true;
-		package = pkgs.steam;
+		package = pkgs.steam.override {
+    		  extraEnv = {
+      			LD_AUDIT = "${
+        		inputs.sls-steam.packages.${pkgs.stdenv.hostPlatform.system}.sls-steam
+      }/library-inject.so:${
+        		inputs.sls-steam.packages.${pkgs.stdenv.hostPlatform.system}.sls-steam
+      }/SLSsteam.so";
+    			};
+  		  };
 		extraPackages = with pkgs; [
 			gamescope
 			gamescope-wsi
 			mangohud
             		gamemode
 		];
+
 		extraCompatPackages = with pkgs; [ proton-ge-bin ];
 	};
 	services.sunshine = {
