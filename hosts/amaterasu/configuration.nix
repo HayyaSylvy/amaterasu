@@ -41,7 +41,7 @@ in
   
   # Enables my Acer RGB Keyboard to work properly.
   boot.extraModulePackages = [ acermodule ];
-  boot.kernelModules = [ "facer" "wmi" "sparse-keymap" "video"];  
+  boot.kernelModules = [ "facer" "wmi" "sparse-keymap" "video" ];  
   
   # Enables Plymouth, and removes most boot messages.
   boot.plymouth.enable = true;
@@ -168,6 +168,7 @@ in
     dmidecode
     python3
     virtiofsd
+    looking-glass-client
     libglvnd
     nautilus
     file-roller
@@ -211,6 +212,16 @@ in
     qemu.vhostUserPackages = with pkgs; [
     virtiofsd
     ];
+    qemu.verbatimConfig = ''
+      namespaces = []
+      cgroup_device_acl = [
+        "/dev/null", "/dev/full", "/dev/zero",
+        "/dev/random", "/dev/urandom",
+        "/dev/ptmx", "/dev/kvm", "/dev/kqemu",
+        "/dev/rtc","/dev/hpet", "/dev/vfio/vfio",
+        "/dev/kvmfr0"
+      ]
+    '';
     onBoot = "start";
   };
   programs.virt-manager.enable = true;
