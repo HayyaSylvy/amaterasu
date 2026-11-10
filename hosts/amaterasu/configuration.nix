@@ -164,7 +164,9 @@ in
   # A: Don't need a module or B: Are dependencies else something breaks wittout them. 
   environment.systemPackages = with pkgs; [
     (import inputs.creamlinux-installer { inherit pkgs; })
-    #inputs.acer-rgb-module.packages.x86_64-linux.default
+    (pkgs.callPackage ./../../pkgs/eglantine.nix { })
+    (pkgs.callPackage ./../../pkgs/fefw-recomp-linux.nix { })
+    inputs.nix-gaming.packages.${pkgs.stdenv.hostPlatform.system}.wine-discord-ipc-bridge
     dmidecode
     python3
     virtiofsd
