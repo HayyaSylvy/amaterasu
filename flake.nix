@@ -8,6 +8,7 @@
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
     disko.url = "github:nix-community/disko/latest";
     disko.inputs.nixpkgs.follows = "nixpkgs";
+    nix-gaming.url = "github:fufexan/nix-gaming";
     #Broken acer-rgb-module.url = "github:HayyaSylvy/acer-rgb-turbo-keyboard-module-rust";
     stylix = { 
         url = "github:nix-community/stylix";
@@ -63,7 +64,7 @@
     };
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, nix-flatpak, stylix, nixvim, dankMaterialShell, niri, spicetify-nix, nixcord, nix-vscode-extensions, creamlinux-installer, sops-nix, disko, sls-steam, accela, ... }: 
+  outputs = inputs@{ self, nixpkgs, home-manager, nix-flatpak, stylix, nixvim, dankMaterialShell, niri, spicetify-nix, nixcord, nix-vscode-extensions, creamlinux-installer, sops-nix, disko, sls-steam, accela, nix-gaming, ... }: 
 
 {
     

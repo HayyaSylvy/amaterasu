@@ -36,7 +36,6 @@
     		openFirewall = true;
   	};
 	environment.systemPackages = with pkgs; [ 
-		wine-discord-ipc-bridge
 		gamescope
 		gamescope-wsi
 	];
