@@ -2,14 +2,13 @@
   description = "NixOS configuration";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:HayyaSylvy/nixpkgs";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
     disko.url = "github:nix-community/disko/latest";
     disko.inputs.nixpkgs.follows = "nixpkgs";
     nix-gaming.url = "github:fufexan/nix-gaming";
-    #Broken acer-rgb-module.url = "github:HayyaSylvy/acer-rgb-turbo-keyboard-module-rust";
     stylix = { 
         url = "github:nix-community/stylix";
         inputs.nixpkgs.follows = "nixpkgs";
@@ -18,16 +17,16 @@
         url = "github:nix-community/nixvim";
         #inputs.nixpkgs.follows = "nixpkgs";
     };
-    dankMaterialShell = {
-      url = "github:AvengeMedia/DankMaterialShell/stable-1.6";
+    dms = {
+      url = "github:duxlabs-dev/dux-shell/stable";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     dms-plugin-registry = {
-    	url = "github:AvengeMedia/dms-plugin-registry";
+    	url = "github:duxlabs-dev/dux-plugin-registry";
         inputs.nixpkgs.follows = "nixpkgs";
     };
-    dank-greeter = {
-      url = "github:AvengeMedia/dank-greeter";
+    dux-greeter = {
+      url = "github:duxlabs-dev/dux-greeter";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     niri = {
@@ -64,7 +63,7 @@
     };
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, nix-flatpak, stylix, nixvim, dankMaterialShell, niri, spicetify-nix, nixcord, nix-vscode-extensions, creamlinux-installer, sops-nix, disko, sls-steam, accela, nix-gaming, ... }: 
+  outputs = inputs@{ self, nixpkgs, home-manager, nix-flatpak, stylix, nixvim, dms, niri, spicetify-nix, nixcord, nix-vscode-extensions, creamlinux-installer, sops-nix, disko, sls-steam, accela, nix-gaming, ... }: 
 
 {
     
@@ -85,7 +84,7 @@
 	  # inputs.acer-rgb-module.nixosModules.default -Broken
 	  sops-nix.nixosModules.sops
           inputs.niri.nixosModules.niri
-	        inputs.dank-greeter.nixosModules.default
+	        inputs.dux-greeter.nixosModules.default
 	        # Imports other system-related modules
                 ./modules/nixos/apps/flatpak.nix
 	        ./modules/nixos/apps/steam.nix
@@ -130,8 +129,8 @@
                   inputs.sops-nix.homeManagerModules.sops
 		              spicetify-nix.homeManagerModules.default	
 		              inputs.zen-browser.homeModules.beta
-                  inputs.dankMaterialShell.homeModules.dank-material-shell
-                  inputs.dankMaterialShell.homeModules.niri
+                  inputs.dms.homeModules.dank-material-shell
+                  inputs.dms.homeModules.niri
                   ];
                };
              };

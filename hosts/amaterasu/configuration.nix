@@ -165,7 +165,6 @@ in
   environment.systemPackages = with pkgs; [
     (import inputs.creamlinux-installer { inherit pkgs; })
     (pkgs.callPackage ./../../pkgs/eglantine.nix { })
-    (pkgs.callPackage ./../../pkgs/fefw-recomp-linux.nix { })
     inputs.nix-gaming.packages.${pkgs.stdenv.hostPlatform.system}.wine-discord-ipc-bridge
     dmidecode
     python3
@@ -178,6 +177,7 @@ in
     p7zip
     xdg-utils
     sops
+    libgpg-error
     nix-output-monitor
   ];
 
@@ -211,19 +211,19 @@ in
   # Enable QEMU/KVM and Virt-Manager. Disabled right now due to a bug :(
   virtualisation.libvirtd = {
     enable = true;
-    qemu.vhostUserPackages = with pkgs; [
-    virtiofsd
-    ];
-    qemu.verbatimConfig = ''
-      namespaces = []
-      cgroup_device_acl = [
-        "/dev/null", "/dev/full", "/dev/zero",
-        "/dev/random", "/dev/urandom",
-        "/dev/ptmx", "/dev/kvm", "/dev/kqemu",
-        "/dev/rtc","/dev/hpet", "/dev/vfio/vfio",
-        "/dev/kvmfr0"
-      ]
-    '';
+    #qemu.vhostUserPackages = with pkgs; [
+    #virtiofsd
+    #];
+    #qemu.verbatimConfig = ''
+    #  namespaces = []
+    #  cgroup_device_acl = [
+    #    "/dev/null", "/dev/full", "/dev/zero",
+    #    "/dev/random", "/dev/urandom",
+    #    "/dev/ptmx", "/dev/kvm", "/dev/kqemu",
+    #    "/dev/rtc","/dev/hpet", "/dev/vfio/vfio",
+    #    "/dev/kvmfr0"
+    #  ]
+    #'';
     onBoot = "start";
   };
   programs.virt-manager.enable = true;
@@ -277,7 +277,6 @@ in
      save = true; 
      path = "/tmp/dms-greeter.log";
     };
-    quickshell.package = pkgs.quickshell;
   };
 
   # Enables Stylix for a unified theming for (pretty much) all apps.
