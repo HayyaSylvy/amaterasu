@@ -11,6 +11,7 @@
   # Home Manager needs information about you and the paths it manages.
   home.username = "ladyhayya";
   home.homeDirectory = "/home/ladyhayya";
+
   
   # Create the default directories you expect in the home folder.
   xdg.userDirs = {
@@ -19,8 +20,11 @@
   };
   
   # Sets Nautilus as the default file browser.
-  xdg.mimeApps.defaultApplications = {
-    "inode/directory" = ["nautilus.desktop"];
+  xdg.mimeApps = {
+  	enable = true;
+  	defaultApplications = {
+    	"inode/directory" = ["org.gnome.Nautilus.desktop"];
+  	};
   };
 
   # This value determines the Home Manager release that your configuration is compatible with. You should not change this value, even if you update Home Manager. If you do want to update the value, make sure to first check the Home Manager release notes.
@@ -29,6 +33,8 @@
   # The home.packages option allows you to install Nix packages.
   home.packages = with pkgs; [
      # Fastfetch as Hyfetch backend, Hyfetch for neofetch but PRIDE :3
+     inputs.accela.packages.${pkgs.stdenv.hostPlatform.system}.default 
+     adwsteamgtk 
      hyfetch
      fastfetch
      azahar
@@ -42,6 +48,7 @@
      # Fonts needed for Powerlevel10k
      meslo-lgs-nf
      noto-fonts-cjk-sans
+     (bottles.override { removeWarningPopup = true; })
      umu-launcher
      # Random apps I couldn't fit in a specific module :P
      qbittorrent # Torrent Client (QT)

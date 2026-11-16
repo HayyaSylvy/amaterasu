@@ -12,8 +12,7 @@
 	"org.onlyoffice.desktopeditors"
 	"org.gimp.GIMP"
 	"com.pokemmo.PokeMMO"
-	{flatpakref = "https://chrisdkn.github.io/Amethyst-Mod-Manager/amethyst.flatpakref";sha256 = "1iwzky2nbd0wp4ydmcbh1ap1rzfa7kr55qfsq9wvm3w3i8bsjqih";}
-	
+	{flatpakref = "https://chrisdkn.github.io/Amethyst-Mod-Manager/amethyst.flatpakref";sha256 = "1iwzky2nbd0wp4ydmcbh1ap1rzfa7kr55qfsq9wvm3w3i8bsjqih";}	
 	];
    };
 

@@ -17,8 +17,8 @@
     	"spotify"
     	"md.obsidian.Obsidian"
     	"codium"
+	"bottles"
     	".virt-manager-wrapped"
-  	"hydralauncher"
 	];
    };
    settings = {
